@@ -1,0 +1,401 @@
+@import 'assets/scss/variables';
+
+.app-header {
+  height: $header-height;
+  background-color: $white-color;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: 1024px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+
+  .banner-top {
+    img {
+      width: 100%;
+      height: 160px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .nav-menu {
+    width: 100%;
+    height: 45px;
+    background-color: $white-color;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+
+    &.fixed-menu {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      animation: fadeInDown 1s forwards;
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
+
+    .menu-bar-wrapper {
+      height: 100%;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+
+      .menu-bar {
+        height: 100%;
+
+        .menu-side {
+          width: 100%;
+          height: 100%;
+          display: inline-flex;
+          gap: 22px;
+
+          @media screen and (max-width: 1024px) {
+            display: block;
+          }
+
+          .menu-item {
+            height: 100%;
+            position: relative;
+            cursor: pointer;
+            color: $primary-text-color;
+
+            .icon-home {
+              font-size: 22px;
+            }
+
+            .wrapper-item {
+              width: 100%;
+              height: 100%;
+              padding: 0;
+              margin: 0;
+              display: block;
+              position: relative;
+              text-transform: uppercase;
+
+              &:hover {
+                color: $secondary-text-color;
+              }
+
+              &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 3px;
+                background-color: $secondary-text-color;
+                transition: width 0.3s ease;
+              }
+
+              &:hover::after {
+                width: 100%;
+              }
+
+              .text-item {
+                width: 100%;
+                height: 100%;
+                font-size: 16px;
+                font-weight: 700;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .arrow {
+                  font-size: 14px;
+                  padding-left: 7px;
+                  padding-bottom: 2px;
+                }
+              }
+            }
+
+            .dropdown-sub {
+              width: 100%;
+              display: none;
+              position: fixed;
+              left: 0;
+              width: 100vw; // Full w
+              background-color: $white-color;
+              box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+              border-bottom: 1px solid #ccc;
+              z-index: 999;
+
+              .wrapper-sub-menu {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 20px;
+                padding: 15px 0px;
+
+                .sub-menu-item {
+                  width: 100%;
+                  height: 100%;
+                  border-left: 2px solid $secondary-text-color;
+                  margin: 0;
+                  padding: 0;
+                  display: flex;
+                  align-items: center;
+                  text-align: center;
+
+                  &:hover {
+                    color: $secondary-text-color;
+                  }
+
+                  .sub-menu-text-item {
+                    font-size: 14px;
+                    font-weight: 700;
+                    padding-left: 10px;
+                  }
+                }
+              }
+            }
+
+            &:hover .dropdown-sub {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .menu-right {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        ul {
+          display: flex;
+          padding-right: 40px;
+
+          li {
+            .text-item-right {
+              font-size: 16px;
+              font-weight: 700;
+              color: $primary-text-color;
+              text-transform: uppercase;
+              line-height: 40px;
+              padding: 0px 15px;
+
+              &:hover {
+                color: rgb(40, 144, 241);
+              }
+            }
+
+            .sepr {
+              background-color: #7a7a7a;
+              display: inline-block;
+              margin: 10px 0;
+              padding: 0;
+              height: 20px;
+              width: 1px;
+              vertical-align: middle;
+            }
+          }
+        }
+
+        li.item-gio-le {
+          span {
+            border: 1px solid $secondary-color;
+            padding: 7px 12px;
+            color: $white-color;
+            background-color: $secondary-color;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+              background-color: rgb(255, 132, 0);
+              color: $white-color;
+            }
+          }
+        }
+
+        .search-bar {
+          background-image: url('assets/icons/search.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 28px;
+          border: solid 1px transparent;
+          display: block;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 40px;
+          width: 40px;
+          transition: all ease 0.3s;
+          margin-top: 2px;
+
+          &.active {
+            background-position: 10px 50%;
+            background-color: #f5f5f5;
+            border: 1px solid #e7e7e7;
+            padding-left: 40px;
+            width: 100%;
+
+            .search-form input {
+              opacity: 1;
+            }
+          }
+
+          .search-form {
+            display: block;
+            line-height: 38px;
+            height: 38px;
+            background: none;
+            border: none;
+            width: 100%;
+            input {
+              background: transparent;
+              border: none;
+              opacity: 0;
+              width: 100%;
+              padding-right: 40px;
+              padding-left: 5px;
+            }
+          }
+        }
+
+        .close-search-bar {
+          display: none;
+          height: 32px;
+          width: 32px;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          cursor: pointer;
+
+          &.active {
+            display: block;
+          }
+
+          svg {
+            opacity: 0.25;
+            width: 100%;
+            height: 100%;
+
+            transition: all ease 0.3s;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .fix-line {
+      width: 100%;
+      height: 10px;
+      background-color: #f5f5f5;
+      border-top: solid 1px #7a7a7a;
+    }
+  }
+
+  .header-mobile {
+    width: 100%;
+    height: 45px;
+    display: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1024' height='45' preserveAspectRatio='none' viewBox='0 0 1024 45'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1008%26quot%3b)' fill='none'%3e%3crect width='1024' height='45' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M409.66 -5.56L474.62 31.94L474.62 106.94L409.66 144.44L344.71 106.94L344.71 31.94zM799.38 -5.56L864.34 31.94L864.34 106.94L799.38 144.44L734.43 106.94L734.43 31.94z' stroke='%2303305d' stroke-width='2'%3e%3c/path%3e%3cpath d='M402.16 -5.56 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM467.12 31.94 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM467.12 106.94 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM402.16 144.44 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM337.21 106.94 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM337.21 31.94 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM791.88 -5.56 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM856.84 31.94 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM856.84 106.94 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM791.88 144.44 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM726.93 106.94 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM726.93 31.94 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0z' fill='%2303305d'%3e%3c/path%3e%3cpath d='M9.52 -9.58L18.18 -4.58L18.18 5.42L9.52 10.42L0.86 5.42L0.86 -4.58zM18.18 5.42L26.84 10.42L26.84 20.42L18.18 25.42L9.52 20.42L9.52 10.42zM44.16 20.42L52.82 25.42L52.82 35.42L44.16 40.42L35.5 35.42L35.5 25.42zM61.48 -9.58L70.14 -4.58L70.14 5.42L61.48 10.42L52.82 5.42L52.82 -4.58zM61.48 20.42L70.14 25.42L70.14 35.42L61.48 40.42L52.82 35.42L52.82 25.42zM78.8 -9.58L87.46 -4.58L87.46 5.42L78.8 10.42L70.14 5.42L70.14 -4.58zM87.46 35.42L96.12 40.42L96.12 50.42L87.46 55.42L78.8 50.42L78.8 40.42zM104.79 35.42L113.45 40.42L113.45 50.42L104.79 55.42L96.12 50.42L96.12 40.42zM113.45 -9.58L122.11 -4.58L122.11 5.42L113.45 10.42L104.79 5.42L104.79 -4.58zM122.11 5.42L130.77 10.42L130.77 20.42L122.11 25.42L113.45 20.42L113.45 10.42zM148.09 -9.58L156.75 -4.58L156.75 5.42L148.09 10.42L139.43 5.42L139.43 -4.58zM148.09 20.42L156.75 25.42L156.75 35.42L148.09 40.42L139.43 35.42L139.43 25.42zM156.75 35.42L165.41 40.42L165.41 50.42L156.75 55.42L148.09 50.42L148.09 40.42zM174.07 5.42L182.73 10.42L182.73 20.42L174.07 25.42L165.41 20.42L165.41 10.42zM165.41 20.42L174.07 25.42L174.07 35.42L165.41 40.42L156.75 35.42L156.75 25.42zM182.73 20.42L191.39 25.42L191.39 35.42L182.73 40.42L174.07 35.42L174.07 25.42zM200.05 -9.58L208.71 -4.58L208.71 5.42L200.05 10.42L191.39 5.42L191.39 -4.58zM217.37 20.42L226.03 25.42L226.03 35.42L217.37 40.42L208.71 35.42L208.71 25.42zM234.69 20.42L243.35 25.42L243.35 35.42L234.69 40.42L226.03 35.42L226.03 25.42zM252.01 20.42L260.67 25.42L260.67 35.42L252.01 40.42L243.35 35.42L243.35 25.42zM278 5.42L286.66 10.42L286.66 20.42L278 25.42L269.33 20.42L269.33 10.42zM269.33 20.42L278 25.42L278 35.42L269.33 40.42L260.67 35.42L260.67 25.42zM286.66 -9.58L295.32 -4.58L295.32 5.42L286.66 10.42L278 5.42L278 -4.58zM295.32 5.42L303.98 10.42L303.98 20.42L295.32 25.42L286.66 20.42L286.66 10.42zM312.64 5.42L321.3 10.42L321.3 20.42L312.64 25.42L303.98 20.42L303.98 10.42zM312.64 35.42L321.3 40.42L321.3 50.42L312.64 55.42L303.98 50.42L303.98 40.42zM329.96 35.42L338.62 40.42L338.62 50.42L329.96 55.42L321.3 50.42L321.3 40.42zM338.62 -9.58L347.28 -4.58L347.28 5.42L338.62 10.42L329.96 5.42L329.96 -4.58zM355.94 20.42L364.6 25.42L364.6 35.42L355.94 40.42L347.28 35.42L347.28 25.42zM381.92 35.42L390.58 40.42L390.58 50.42L381.92 55.42L373.26 50.42L373.26 40.42zM390.58 -9.58L399.24 -4.58L399.24 5.42L390.58 10.42L381.92 5.42L381.92 -4.58zM416.56 35.42L425.22 40.42L425.22 50.42L416.56 55.42L407.9 50.42L407.9 40.42zM425.22 20.42L433.88 25.42L433.88 35.42L425.22 40.42L416.56 35.42L416.56 25.42zM433.88 35.42L442.54 40.42L442.54 50.42L433.88 55.42L425.22 50.42L425.22 40.42zM451.21 35.42L459.87 40.42L459.87 50.42L451.21 55.42L442.54 50.42L442.54 40.42zM459.87 -9.58L468.53 -4.58L468.53 5.42L459.87 10.42L451.21 5.42L451.21 -4.58zM485.85 5.42L494.51 10.42L494.51 20.42L485.85 25.42L477.19 20.42L477.19 10.42zM494.51 20.42L503.17 25.42L503.17 35.42L494.51 40.42L485.85 35.42L485.85 25.42zM520.49 35.42L529.15 40.42L529.15 50.42L520.49 55.42L511.83 50.42L511.83 40.42zM529.15 20.42L537.81 25.42L537.81 35.42L529.15 40.42L520.49 35.42L520.49 25.42zM546.47 -9.58L555.13 -4.58L555.13 5.42L546.47 10.42L537.81 5.42L537.81 -4.58zM555.13 35.42L563.79 40.42L563.79 50.42L555.13 55.42L546.47 50.42L546.47 40.42zM563.79 -9.58L572.45 -4.58L572.45 5.42L563.79 10.42L555.13 5.42L555.13 -4.58zM615.75 -9.58L624.42 -4.58L624.42 5.42L615.75 10.42L607.09 5.42L607.09 -4.58zM615.75 20.42L624.42 25.42L624.42 35.42L615.75 40.42L607.09 35.42L607.09 25.42zM624.42 35.42L633.08 40.42L633.08 50.42L624.42 55.42L615.75 50.42L615.75 40.42zM633.08 -9.58L641.74 -4.58L641.74 5.42L633.08 10.42L624.42 5.42L624.42 -4.58zM659.06 5.42L667.72 10.42L667.72 20.42L659.06 25.42L650.4 20.42L650.4 10.42zM650.4 20.42L659.06 25.42L659.06 35.42L650.4 40.42L641.74 35.42L641.74 25.42zM676.38 5.42L685.04 10.42L685.04 20.42L676.38 25.42L667.72 20.42L667.72 10.42zM719.68 -9.58L728.34 -4.58L728.34 5.42L719.68 10.42L711.02 5.42L711.02 -4.58zM762.98 5.42L771.64 10.42L771.64 20.42L762.98 25.42L754.32 20.42L754.32 10.42zM771.64 -9.58L780.3 -4.58L780.3 5.42L771.64 10.42L762.98 5.42L762.98 -4.58zM771.64 20.42L780.3 25.42L780.3 35.42L771.64 40.42L762.98 35.42L762.98 25.42zM780.3 35.42L788.96 40.42L788.96 50.42L780.3 55.42L771.64 50.42L771.64 40.42zM806.29 -9.58L814.95 -4.58L814.95 5.42L806.29 10.42L797.63 5.42L797.63 -4.58zM814.95 5.42L823.61 10.42L823.61 20.42L814.95 25.42L806.29 20.42L806.29 10.42zM806.29 20.42L814.95 25.42L814.95 35.42L806.29 40.42L797.63 35.42L797.63 25.42zM832.27 5.42L840.93 10.42L840.93 20.42L832.27 25.42L823.61 20.42L823.61 10.42zM840.93 -9.58L849.59 -4.58L849.59 5.42L840.93 10.42L832.27 5.42L832.27 -4.58zM849.59 35.42L858.25 40.42L858.25 50.42L849.59 55.42L840.93 50.42L840.93 40.42zM858.25 20.42L866.91 25.42L866.91 35.42L858.25 40.42L849.59 35.42L849.59 25.42zM866.91 35.42L875.57 40.42L875.57 50.42L866.91 55.42L858.25 50.42L858.25 40.42zM884.23 5.42L892.89 10.42L892.89 20.42L884.23 25.42L875.57 20.42L875.57 10.42zM875.57 20.42L884.23 25.42L884.23 35.42L875.57 40.42L866.91 35.42L866.91 25.42zM901.55 5.42L910.21 10.42L910.21 20.42L901.55 25.42L892.89 20.42L892.89 10.42zM892.89 20.42L901.55 25.42L901.55 35.42L892.89 40.42L884.23 35.42L884.23 25.42zM936.19 5.42L944.85 10.42L944.85 20.42L936.19 25.42L927.53 20.42L927.53 10.42zM936.19 35.42L944.85 40.42L944.85 50.42L936.19 55.42L927.53 50.42L927.53 40.42zM996.82 20.42L1005.48 25.42L1005.48 35.42L996.82 40.42L988.16 35.42L988.16 25.42zM1031.46 -9.58L1040.12 -4.58L1040.12 5.42L1031.46 10.42L1022.8 5.42L1022.8 -4.58z' stroke='rgba(6%2c 80%2c 156%2c 0.93)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1008'%3e%3crect width='1024' height='45' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    border-bottom: solid 1px #7a7a7a;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0px 10px;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1024px) {
+      display: flex;
+      align-items: center;
+    }
+
+    .action-home-moblie {
+      svg {
+        font-size: 22px;
+        color: $white-color;
+      }
+    }
+
+    .header__action {
+      visibility: hidden;
+      opacity: 0;
+      box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%),
+        0 0.9375rem 1.40625rem rgb(4 9 20 / 3%),
+        0 0.25rem 0.53125rem rgb(4 9 20 / 5%),
+        0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: 0;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+      padding: 10px 10px;
+      overflow: hidden;
+      min-height: calc(100vh - 45px);
+
+      &.mobile-show {
+        visibility: visible;
+        opacity: 1;
+        top: 45px;
+        z-index: 109;
+        background-color: $white-color;
+      }
+
+      .wrapper-item-menu-moblie {
+        width: 100%;
+        height: 100%;
+        padding: 15px 0px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-gap: 10px;
+      }
+
+      .item-menu-mobile {
+        width: 100%;
+
+        .text-item-moblie {
+          font-size: 15px;
+          color: $primary-text-color;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+
+        .list-item-sub-moblie {
+          padding-left: 10px;
+          .text-item-sub-moblie {
+            font-size: 15px;
+            color: $primary-text-color;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}

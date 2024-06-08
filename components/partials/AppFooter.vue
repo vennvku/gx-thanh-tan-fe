@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h1>Main Page</h1>
+    <h1>This is Footer</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'DefaultPage',
+  name: 'AppFooter',
 }
 </script>

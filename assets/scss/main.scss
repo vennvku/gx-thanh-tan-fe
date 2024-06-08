@@ -9,11 +9,6 @@
 // @import 'assets/scss/tabs';
 // @import 'assets/scss/dropdown';
 
-@font-face {
-  font-family: 'Mulish';
-  src: url('assets/fonts/mulish/Mulish-Regular.ttf') format('truetype');
-}
-
 $mulish: 'Mulish', sans-serif;
 
 @mixin scroll-bar {
@@ -64,6 +59,8 @@ body {
   font-size: $default-font-size;
   @include scroll-bar;
 
+  font-family: $mulish;
+
   @media screen and (max-width: 767px) {
     font-size: $default-mobile-font-size;
   }
@@ -83,10 +80,6 @@ body {
     &:focus {
       outline: none;
     }
-  }
-
-  h1 {
-    font-family: 'Mulish';
   }
 
   h4 {
@@ -121,6 +114,13 @@ body {
 
   ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -133,4 +133,9 @@ body {
 .page-enter,
 .page-leave-to {
   opacity: 0;
+}
+
+.cont-wrap {
+  max-width: 1296px;
+  min-width: 320px;
 }
