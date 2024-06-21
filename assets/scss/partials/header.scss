@@ -220,11 +220,11 @@
             border: 1px solid $secondary-color;
             padding: 7px 12px;
             color: $white-color;
-            background-color: $secondary-color;
+            background: linear-gradient(220.55deg, #fff500 0%, #ff00b8 100%);
             transition: background-color 0.3s ease;
 
             &:hover {
-              background-color: rgb(255, 132, 0);
+              background: linear-gradient(220.55deg, #9f25ff 0%, #ff7a00 100%);
               color: $white-color;
             }
           }

@@ -1,0 +1,151 @@
+@import 'assets/scss/variables';
+
+.main-head {
+  width: 100%;
+}
+
+.mix-news {
+  padding-left: 10px;
+  padding-right: 10px;
+
+  .mix-news-top {
+    ul {
+      li {
+        border-top: solid 1px $border-color;
+        padding: 15px 0;
+        display: flex;
+        justify-content: space-between;
+
+        &:first-child {
+          border: none;
+          padding-top: 0;
+        }
+
+        .wrapper-title {
+          padding-right: 10px;
+
+          .title {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 22px;
+
+            &:hover {
+              color: $secondary-text-color;
+            }
+          }
+
+          .info {
+            padding-top: 10px;
+            color: #7a7a7a;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 12px;
+
+            &:hover {
+              color: $secondary-text-color;
+            }
+          }
+        }
+
+        .thumb {
+          width: 196px;
+          min-height: 110px;
+
+          img {
+            width: 196px;
+            height: auto;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sidebar-right-head {
+  @media screen and (max-width: 1024px) {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+
+  .lm-quan-xu {
+    padding-bottom: 20px;
+    text-align: center;
+
+    .img {
+      width: 100%;
+
+      @media screen and (min-width: 1024px) {
+        height: 174px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: $primary-text-color;
+      padding-top: 10px;
+    }
+
+    .des {
+      font-weight: 400;
+      font-size: 12px;
+      color: #7a7a7a;
+    }
+  }
+
+  .wrapper-gio-le {
+    width: 100%;
+    border-top: 3px solid #ff7f3e;
+    border-left: 3px solid #ff7f3e;
+    border-right: 3px solid #5ab2ff;
+    border-bottom: 3px solid #5ab2ff;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    padding: 10px;
+
+    .title-gio-le {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background-color: $white-color;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding-left: 7px;
+      padding-right: 7px;
+    }
+
+    .content-gio-le {
+      padding-top: 10px;
+      .title-day {
+        font-size: 14px;
+        font-weight: 700;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+        text-align: center;
+
+        .arrow-right-day {
+          width: 20px;
+          height: 20px;
+
+          // img {
+          //   width: 100%;
+          //   height: 100%;
+          // }
+        }
+      }
+    }
+  }
+}

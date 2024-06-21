@@ -43,46 +43,12 @@ $success-color: rgb(40, 167, 69);
 $light-intermediate-color: rgb(255, 185, 102);
 $background-sidebar-color: rgb(242, 242, 242);
 
-$gold-gradient: radial-gradient(
-    ellipse farthest-corner at right bottom,
-    #ffe578 0%,
-    #ffd174 8%,
-    #ffcb67 30%,
-    #ffc43c 40%,
-    transparent 80%
-  ),
-  radial-gradient(
-    ellipse farthest-corner at left top,
-    #ffffff 0%,
-    #ffffcf 8%,
-    #ffe9b0 25%,
-    #ffca6d 62.5%,
-    #5d4a1f 100%
-  );
-$gold-shadow: #5d4a1f;
-
-$silver-gradient: radial-gradient(
-    ellipse farthest-corner at right bottom,
-    #ececec 0%,
-    #e1e1e1 8%,
-    #c5c5c5 30%,
-    #c2c2c2 40%,
-    transparent 80%
-  ),
-  radial-gradient(
-    ellipse farthest-corner at left top,
-    #ffffff 0%,
-    #eaeaea 8%,
-    #d0d0d0 25%,
-    #a8a8a8 62.5%,
-    #949494 100%
-  );
-$silver-shadow: #949494;
-
 $white-color: #fff;
 $black-color: rgba(0, 0, 0, 1);
 $gray-color: rgb(100, 100, 100);
 $grey-color: #ddd;
+
+$border-color: #ccc;
 
 $primary-text-color: #28262c;
 $secondary-text-color: rgb(226 0 7);
@@ -90,3 +56,7 @@ $secondary-text-color: rgb(226 0 7);
 // Font size
 $default-font-size: 0.82rem;
 $default-mobile-font-size: 0.8rem;
+
+$stafford: 'Stafford', serif;
+
+$test-bg: linear-gradient(220.55deg, #dde4ff 0%, #8da2ee 100%);

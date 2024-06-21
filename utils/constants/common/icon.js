@@ -15,6 +15,7 @@ import remove from '~/assets/icons/remove.svg'
 import done from '~/assets/icons/done.svg'
 import home from '~/assets/icons/home.svg'
 import arrowMenu from '~/assets/icons/arrow_menu.svg'
+import rightArrow2 from '~/assets/icons/right_arrow_2.svg'
 
 export const ICON = {
   accountCircle,
@@ -34,4 +35,5 @@ export const ICON = {
   done,
   home,
   arrowMenu,
+  rightArrow2,
 }

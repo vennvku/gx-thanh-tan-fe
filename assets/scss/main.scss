@@ -9,6 +9,15 @@
 // @import 'assets/scss/tabs';
 // @import 'assets/scss/dropdown';
 
+@font-face {
+  font-family: 'Stafford';
+  src: url('~assets/fonts/stafford/SFUStaffordBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+$stafford: 'Stafford', serif;
+
 $mulish: 'Mulish', sans-serif;
 
 @mixin scroll-bar {
@@ -138,4 +147,37 @@ body {
 .cont-wrap {
   max-width: 1296px;
   min-width: 320px;
+}
+
+.row {
+  margin: 0 !important;
+}
+
+.col-content {
+  width: auto;
+  max-width: 100%;
+  float: left;
+}
+
+.pad-320 {
+  @media screen and (min-width: 1024px) {
+    width: calc(100% - 320px);
+  }
+  width: 100%;
+  border-right: 1px solid $border-color;
+}
+
+.fit-320 {
+  @media screen and (min-width: 1024px) {
+    width: 320px;
+    padding-left: 10px;
+  }
+  width: 100%;
+}
+
+.w50 {
+  @media screen and (min-width: 1024px) {
+    width: 50%;
+  }
+  width: 100%;
 }

@@ -346,6 +346,9 @@
                 <span class="text-item-right">Giờ Lễ</span>
               </NuxtLink>
             </li>
+            <li>
+              <span>Tiếng Việt</span>
+            </li>
           </ul>
           <div
             ref="searchbar"

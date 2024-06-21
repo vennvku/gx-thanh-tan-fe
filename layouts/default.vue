@@ -1,7 +1,7 @@
 <template>
   <div class="default-layout app-container fixed-header">
     <app-header />
-    <b-container class="container-wrapper position-relative" fluid="md">
+    <b-container class="container-wrapper position-relative cont-wrap" fluid>
       <nuxt class="page-content" />
     </b-container>
     <app-footer />
