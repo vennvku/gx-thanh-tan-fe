@@ -104,10 +104,9 @@
 
   .wrapper-gio-le {
     width: 100%;
-    border-top: 3px solid #ff7f3e;
-    border-left: 3px solid #ff7f3e;
-    border-right: 3px solid #5ab2ff;
-    border-bottom: 3px solid #5ab2ff;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #ffb687;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
     position: relative;
@@ -146,6 +145,25 @@
           // }
         }
       }
+
+      .gio-le {
+        display: flex;
+        align-items: center;
+        padding-top: 5px;
+        .icon-day {
+          display: flex;
+          align-items: center;
+          padding-right: 5px;
+        }
+
+        .text-day {
+          padding-top: 3px;
+        }
+      }
+    }
+
+    .chi-tiet-gio-le {
+      padding-top: 5px;
     }
   }
 }

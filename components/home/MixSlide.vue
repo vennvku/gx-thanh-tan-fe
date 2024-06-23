@@ -8,24 +8,24 @@
       <div class="slider">
         <div class="list-image-slider">
           <div
-            v-for="(item, index) in slideNews"
+            v-for="(slideNew, index) in slideNews"
             :key="index"
             class="item-slider"
             :class="{ active: index === activeIndex }"
           >
-            <b-img :src="item.src" :alt="`Slide ${index + 1}`"></b-img>
+            <b-img :src="slideNew.src" :alt="`Slide ${index + 1}`"></b-img>
             <div class="wrapper-text-slider">
               <h4 class="text-slide">
                 <NuxtLink to="">
-                  {{ item.title }}
+                  {{ slideNew.title }}
                 </NuxtLink>
               </h4>
               <ul class="dots">
                 <li
-                  v-for="(dot, index) in slideNews"
-                  :key="index"
-                  :class="{ active: index === activeIndex }"
-                  @click="setSlide(index)"
+                  v-for="(dot, indexdot) in slideNews"
+                  :key="indexdot"
+                  :class="{ active: indexdot === activeIndex }"
+                  @click="setSlide(indexdot)"
                 ></li>
               </ul>
             </div>
@@ -36,22 +36,9 @@
 
     <div class="news-bottom-slide">
       <ul>
-        <li>
+        <li v-for="(listNew, index) in listNews" :key="index">
           <NuxtLink to="">
-            ĐTC Phanxicô sẽ ban hành tài liệu về Thánh Tâm Chúa Giê-su vào tháng
-            9
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="">
-            ĐTC Phanxicô sẽ ban hành tài liệu về Thánh Tâm Chúa Giê-su vào tháng
-            9
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="">
-            ĐTC Phanxicô sẽ ban hành tài liệu về Thánh Tâm Chúa Giê-su vào tháng
-            9
+            {{ listNew.title }}
           </NuxtLink>
         </li>
       </ul>
@@ -65,6 +52,7 @@ export default {
   data() {
     return {
       activeIndex: 0,
+      interval: null,
       slideNews: [
         {
           src: require('@/assets/img/1.jpg'),
@@ -90,7 +78,19 @@ export default {
             'Caritas Huế – Nối kết tình thân gia đình trẻ em OVC trong ngày sinh hoạt 02.6.2024',
         },
       ],
-      interval: null,
+      listNews: [
+        {
+          title: 'Trò chơi ô chữ – Chúa nhật X Thường niên 2024 – Năm B',
+        },
+        {
+          title:
+            'Thiếu Nhi Thánh Thể Hạt thành phố Huế mừng lễ Mình Máu Thánh Chúa Kitô năm 2024',
+        },
+        {
+          title:
+            'TNTT Hiệp Đoàn Hải Vân Mừng Lễ Mình và Máu Thánh Chúa Kitô – Bổn mạng phong trào Thiếu Nhi Thánh Thể năm 2024',
+        },
+      ],
     }
   },
   mounted() {

@@ -16,6 +16,8 @@ import done from '~/assets/icons/done.svg'
 import home from '~/assets/icons/home.svg'
 import arrowMenu from '~/assets/icons/arrow_menu.svg'
 import rightArrow2 from '~/assets/icons/right_arrow_2.svg'
+import morning from '~/assets/icons/morning.svg'
+import night from '~/assets/icons/night.svg'
 
 export const ICON = {
   accountCircle,
@@ -36,4 +38,6 @@ export const ICON = {
   home,
   arrowMenu,
   rightArrow2,
+  morning,
+  night,
 }

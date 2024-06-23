@@ -10,18 +10,18 @@
             <div class="mix-news">
               <div class="mix-news-top">
                 <ul>
-                  <li v-for="(item, index) in mixNews" :key="index">
+                  <li v-for="(mainNew, index) in mainNews" :key="index">
                     <div class="wrapper-title">
                       <NuxtLink to="" class="title">
-                        {{ item.title }}
+                        {{ mainNew.title }}
                       </NuxtLink>
                       <div v-if="(index == 0) | (index == 1)" class="info">
-                        <NuxtLink to=""> Tin Giáo Phận </NuxtLink>
+                        <NuxtLink to=""> {{ mainNew.tag }} </NuxtLink>
                       </div>
                     </div>
                     <div v-if="(index == 0) | (index == 1)" class="thumb">
                       <NuxtLink to="">
-                        <b-img :src="item.src"></b-img>
+                        <b-img :src="mainNew.src"></b-img>
                       </NuxtLink>
                     </div>
                   </li>
@@ -56,15 +56,47 @@
                 </span>
                 <span>Thứ 7</span>
               </div>
-              <p>Sáng: 5h5'</p>
-              <p>Chiều: 18h30'</p>
+              <div class="gio-le">
+                <span class="icon-day"
+                  ><b-img :src="ICON.morning"></b-img
+                ></span>
+
+                <span class="text-day"
+                  ><strong>Sáng:</strong> <i>05h05</i></span
+                >
+              </div>
+
+              <div class="gio-le">
+                <span class="icon-day"><b-img :src="ICON.night"></b-img></span>
+
+                <span class="text-day"
+                  ><strong>Chiều:</strong> <i>18h30</i></span
+                >
+              </div>
             </div>
 
             <div class="content-gio-le">
               <div class="title-day"><span>Chủ nhật</span></div>
-              <p>Sáng: 5h5'</p>
-              <p>Chiều: 18h30'</p>
+              <div class="gio-le">
+                <span class="icon-day"
+                  ><b-img :src="ICON.morning"></b-img
+                ></span>
+
+                <span class="text-day"
+                  ><strong>Sáng:</strong> <i>06h00</i></span
+                >
+              </div>
+
+              <div class="gio-le">
+                <span class="icon-day"><b-img :src="ICON.night"></b-img></span>
+
+                <span class="text-day"
+                  ><strong>Chiều:</strong> <i>17h30</i></span
+                >
+              </div>
             </div>
+
+            <div class="chi-tiet-gio-le">Xem giờ lễ chi tiết: Tại đây</div>
           </div>
         </div>
       </div>
@@ -91,29 +123,34 @@ export default {
   data() {
     return {
       ICON,
-      mixNews: [
+      mainNews: [
         {
           src: require('@/assets/img/1.jpg'),
           title: 'Trò chơi ô chữ – Chúa nhật X Thường niên 2024 – Năm B',
+          tag: 'Tin Giáo Phận',
         },
         {
           src: require('@/assets/img/2.jpg'),
           title:
             'Thiếu Nhi Thánh Thể Hạt thành phố Huế mừng lễ Mình Máu Thánh Chúa Kitô năm 2024',
+          tag: 'Tin Giáo Phận',
         },
         {
           src: require('@/assets/img/3.jpg'),
           title:
             'TNTT Hiệp Đoàn Hải Vân Mừng Lễ Mình và Máu Thánh Chúa Kitô – Bổn mạng phong trào Thiếu Nhi Thánh Thể năm 2024',
+          tag: 'Tin Giáo Phận',
         },
         {
           src: require('@/assets/img/4.jpg'),
           title: 'Thánh Lễ Ban Bí tích Thêm Sức tại Giáo sở Nước Ngọt năm 2024',
+          tag: 'Tin Giáo Phận',
         },
         {
           src: require('@/assets/img/5.jpg'),
           title:
             'Caritas Huế – Nối kết tình thân gia đình trẻ em OVC trong ngày sinh hoạt 02.6.2024',
+          tag: 'Tin Giáo Phận',
         },
       ],
     }

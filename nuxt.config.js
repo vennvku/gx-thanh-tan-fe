@@ -1,4 +1,9 @@
 export default {
+  server: {
+    host: '0.0.0.0', // lắng nghe trên tất cả các địa chỉ IP
+    port: 3000, // port bạn muốn chạy ứng dụng (có thể thay đổi nếu cần)
+  },
+
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
@@ -6,7 +11,7 @@ export default {
   head: {
     title: 'Giáo xứ Thanh Tân - TGP Huế',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'vi',
     },
     meta: [
       { charset: 'utf-8' },
