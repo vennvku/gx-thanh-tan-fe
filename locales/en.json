@@ -1,0 +1,38 @@
+{
+  "language": {
+    "vi": "Vietnamese",
+    "en": "English"
+  },
+  "title": "Thanh Tan Parish",
+  "menu": {
+    "parish": {
+      "heading": "Parish",
+      "subMenus": {
+        "parishHistory": "Parish history",
+        "pastor": "Pastor",
+        "officials": "Officials"
+      }
+    },
+    "news": {
+      "heading": "news",
+      "subMenus": {
+        "parishNews": "Parish News",
+        "diocesanNews": "Diocesan News",
+        "newsVietnameseChurch": "News Of The Vietnamese Church",
+        "worldwideChurchNews": "Worldwide Church News"
+      }
+    },
+    "wordOfGod": "Word Of God",
+    "associations": {
+      "heading": "Associations",
+      "subMenus": {
+        "parishCaritas": "Parish Caritas"
+      }
+    },
+    "reflections": "Reflections",
+    "documents": "Documents",
+    "contact": "Contact",
+    "articleLatest": "Latest",
+    "massTimes": "Mass Times"
+  }
+}

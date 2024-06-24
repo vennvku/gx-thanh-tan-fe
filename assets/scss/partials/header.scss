@@ -80,7 +80,7 @@
             color: $primary-text-color;
 
             .icon-home {
-              font-size: 22px;
+              font-size: 24px;
             }
 
             .wrapper-item {
@@ -190,12 +190,13 @@
           padding-right: 40px;
 
           li {
+            display: flex;
+            align-items: center;
             .text-item-right {
               font-size: 16px;
               font-weight: 700;
               color: $primary-text-color;
               text-transform: uppercase;
-              line-height: 40px;
               padding: 0px 15px;
 
               &:hover {
@@ -206,8 +207,6 @@
             .sepr {
               background-color: #7a7a7a;
               display: inline-block;
-              margin: 10px 0;
-              padding: 0;
               height: 20px;
               width: 1px;
               vertical-align: middle;
@@ -216,8 +215,8 @@
         }
 
         li.item-gio-le {
+          margin-right: 10px;
           span {
-            border: 1px solid $secondary-color;
             padding: 7px 12px;
             color: $white-color;
             background: linear-gradient(220.55deg, #fff500 0%, #ff00b8 100%);

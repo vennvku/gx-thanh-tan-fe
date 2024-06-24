@@ -1,0 +1,38 @@
+{
+  "language": {
+    "vi": "Tiếng Việt",
+    "en": "Tiếng Anh"
+  },
+  "title": "Giáo xứ Thanh Tân",
+  "menu": {
+    "parish": {
+      "heading": "Giáo xứ",
+      "subMenus": {
+        "parishHistory": "Lịch sử Giáo xứ",
+        "pastor": "Lm. Quản xứ",
+        "officials": "Quý chức"
+      }
+    },
+    "news": {
+      "heading": "Tin tức",
+      "subMenus": {
+        "parishNews": "Tin Giáo xứ",
+        "diocesanNews": "Tin Giáo Phận",
+        "newsVietnameseChurch": "Tin Giáo Hội Việt Nam",
+        "worldwideChurchNews": "Tin Giáo Hội Hoàn Vũ"
+      }
+    },
+    "wordOfGod": "Lời Chúa",
+    "associations": {
+      "heading": "Hội đoàn",
+      "subMenus": {
+        "parishCaritas": "Hội Caritas Giáo xứ"
+      }
+    },
+    "reflections": "Suy tư - tản mạn",
+    "documents": "Tài liệu",
+    "contact": "Liên hệ",
+    "articleLatest": "Mới nhất",
+    "massTimes": "Giờ Lễ"
+  }
+}

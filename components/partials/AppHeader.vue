@@ -8,26 +8,7 @@
       <div class="action-home-moblie">
         <NuxtLink to="">
           <span>
-            <svg
-              width="1em"
-              height="1em"
-              viewBox="0 0 64 64"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M62.6 31.2c-0.3 0-0.6-0.1-0.9-0.3L32 4.6 2.3 30.9c-0.6 0.5-1.4 0.4-1.9-0.1 -0.5-0.6-0.4-1.4 0.1-1.9L32 1l31.5 27.9c0.6 0.5 0.6 1.4 0.1 1.9C63.4 31.1 63 31.2 62.6 31.2z"
-                fill="currentColor"
-              />
-              <path
-                d="M57.7 63.8h-19v-19H25.2v19h-19V32.6c0-0.7 0.6-1.4 1.4-1.4S9 31.9 9 32.6V61h13.5v-19h19v19H55V32.6c0-0.7 0.6-1.4 1.4-1.4s1.4 0.6 1.4 1.4V63.8z"
-                fill="currentColor"
-              />
-              <path
-                d="M56.4 17.7c-0.7 0-1.4-0.6-1.4-1.4V9.6h-6.8c-0.7 0-1.4-0.6-1.4-1.4s0.6-1.4 1.4-1.4h9.5v9.5C57.7 17.1 57.1 17.7 56.4 17.7z"
-                fill="currentColor"
-              />
-            </svg>
+            <church-icon />
           </span>
         </NuxtLink>
       </div>
@@ -144,189 +125,51 @@
           <ul ref="menuside" class="menu-side">
             <li class="menu-item">
               <div class="wrapper-item">
-                <NuxtLink to="">
+                <NuxtLink to="/">
                   <span class="icon-home">
-                    <svg
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 64 64"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M62.6 31.2c-0.3 0-0.6-0.1-0.9-0.3L32 4.6 2.3 30.9c-0.6 0.5-1.4 0.4-1.9-0.1 -0.5-0.6-0.4-1.4 0.1-1.9L32 1l31.5 27.9c0.6 0.5 0.6 1.4 0.1 1.9C63.4 31.1 63 31.2 62.6 31.2z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M57.7 63.8h-19v-19H25.2v19h-19V32.6c0-0.7 0.6-1.4 1.4-1.4S9 31.9 9 32.6V61h13.5v-19h19v19H55V32.6c0-0.7 0.6-1.4 1.4-1.4s1.4 0.6 1.4 1.4V63.8z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M56.4 17.7c-0.7 0-1.4-0.6-1.4-1.4V9.6h-6.8c-0.7 0-1.4-0.6-1.4-1.4s0.6-1.4 1.4-1.4h9.5v9.5C57.7 17.1 57.1 17.7 56.4 17.7z"
-                        fill="currentColor"
-                      />
-                    </svg>
+                    <church-icon />
                   </span>
                 </NuxtLink>
               </div>
             </li>
-            <li class="menu-item">
-              <div class="wrapper-item">
-                <h4 class="text-item">
-                  Giáo xứ
-                  <span class="arrow">
-                    <svg
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+
+            <li v-for="(item, key) in menu" :key="key" class="menu-item">
+              <span v-if="item.subMenus">
+                <div class="wrapper-item">
+                  <h4 class="text-item">
+                    {{ $t(`menu.${item.title}.heading`) }}
+                    <span class="arrow">
+                      <arrow-bottom-icon />
+                    </span>
+                  </h4>
+                </div>
+                <div
+                  class="dropdown-sub"
+                  :style="{ top: positionTopMenu + 'px' }"
+                >
+                  <b-container fluid class="wrapper-sub-menu cont-wrap">
+                    <div
+                      v-for="(subMenu, keySubMenu) in item.subMenus"
+                      :key="keySubMenu"
+                      class="sub-menu-item"
                     >
-                      <path
-                        d="M9.79993 1.128L8.67193 0L4.99993 3.664L1.32793 0L0.199926 1.128L4.99993 5.928L9.79993 1.128Z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
-                  </span>
-                </h4>
-              </div>
-              <div
-                class="dropdown-sub"
-                :style="{ top: positionTopMenu + 'px' }"
-              >
-                <b-container fluid class="wrapper-sub-menu cont-wrap">
-                  <div class="sub-menu-item">
-                    <NuxtLink to="">
-                      <span class="sub-menu-text-item">Lịch sử Giáo xứ</span>
-                    </NuxtLink>
-                  </div>
-                  <div class="sub-menu-item">
-                    <NuxtLink to="">
-                      <span class="sub-menu-text-item">Lm. Quản Xứ</span>
-                    </NuxtLink>
-                  </div>
-                  <div class="sub-menu-item">
-                    <NuxtLink to="">
-                      <span class="sub-menu-text-item">Quý chức</span>
-                    </NuxtLink>
-                  </div>
-                </b-container>
-              </div>
-            </li>
-            <li class="menu-item">
-              <div class="wrapper-item">
-                <h4 class="text-item">
-                  Tin tức
-                  <span class="arrow">
-                    <svg
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9.79993 1.128L8.67193 0L4.99993 3.664L1.32793 0L0.199926 1.128L4.99993 5.928L9.79993 1.128Z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
-                  </span>
-                </h4>
-              </div>
-              <div
-                class="dropdown-sub"
-                :style="{ top: positionTopMenu + 'px' }"
-              >
-                <b-container fluid class="wrapper-sub-menu cont-wrap">
-                  <div class="sub-menu-item">
-                    <NuxtLink to="">
-                      <span class="sub-menu-text-item">Tin Giáo xứ</span>
-                    </NuxtLink>
-                  </div>
-                  <div class="sub-menu-item">
-                    <NuxtLink to="">
-                      <span class="sub-menu-text-item">Tin Giáo Phận</span>
-                    </NuxtLink>
-                  </div>
-                  <div class="sub-menu-item">
-                    <NuxtLink to="">
-                      <span class="sub-menu-text-item"
-                        >Tin Giáo Hội Việt Nam</span
-                      >
-                    </NuxtLink>
-                  </div>
-                  <div class="sub-menu-item">
-                    <NuxtLink to="">
-                      <span class="sub-menu-text-item"
-                        >Tin Giáo Hội Hoàn Vũ</span
-                      >
-                    </NuxtLink>
-                  </div>
-                </b-container>
-              </div>
-            </li>
-            <li class="menu-item">
-              <div class="wrapper-item">
-                <NuxtLink to="">
-                  <h4 class="text-item">Lời Chúa</h4>
-                </NuxtLink>
-              </div>
-            </li>
-            <li class="menu-item">
-              <div class="wrapper-item">
-                <h4 class="text-item">
-                  Hội đoàn
-                  <span class="arrow">
-                    <svg
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9.79993 1.128L8.67193 0L4.99993 3.664L1.32793 0L0.199926 1.128L4.99993 5.928L9.79993 1.128Z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
-                  </span>
-                </h4>
-              </div>
-              <div
-                class="dropdown-sub"
-                :style="{ top: positionTopMenu + 'px' }"
-              >
-                <b-container fluid class="wrapper-sub-menu cont-wrap">
-                  <div class="sub-menu-item">
-                    <NuxtLink to="">
-                      <span class="sub-menu-text-item"
-                        >Hội Caritas Giáo xứ</span
-                      >
-                    </NuxtLink>
-                  </div>
-                </b-container>
-              </div>
-            </li>
-            <li class="menu-item">
-              <div class="wrapper-item">
-                <NuxtLink to="">
-                  <h4 class="text-item">Suy tư - tản mạn</h4>
-                </NuxtLink>
-              </div>
-            </li>
-            <li class="menu-item">
-              <div class="wrapper-item">
-                <NuxtLink to="">
-                  <h4 class="text-item">Tài liệu</h4>
-                </NuxtLink>
-              </div>
-            </li>
-            <li class="menu-item">
-              <div class="wrapper-item">
-                <NuxtLink to="">
-                  <h4 class="text-item">Liên hệ</h4>
-                </NuxtLink>
-              </div>
+                      <NuxtLink :to="subMenu.router">
+                        <span class="sub-menu-text-item">{{
+                          $t(`menu.${item.title}.subMenus.${subMenu.title}`)
+                        }}</span>
+                      </NuxtLink>
+                    </div>
+                  </b-container>
+                </div>
+              </span>
+
+              <span v-else>
+                <div class="wrapper-item">
+                  <NuxtLink :to="item.router">
+                    <h4 class="text-item">{{ $t(`menu.${item.title}`) }}</h4>
+                  </NuxtLink>
+                </div>
+              </span>
             </li>
           </ul>
         </div>
@@ -337,17 +180,19 @@
               <i class="sepr"></i>
             </li>
             <li>
-              <NuxtLink to="">
-                <span class="text-item-right">Mới nhất</span>
+              <NuxtLink :to="SCREEN_PATH.MENU.ARTICLE_LATEST">
+                <span class="text-item-right">{{
+                  $t('menu.articleLatest')
+                }}</span>
               </NuxtLink>
             </li>
             <li class="item-gio-le">
-              <NuxtLink to="">
-                <span class="text-item-right">Giờ Lễ</span>
+              <NuxtLink :to="SCREEN_PATH.MENU.MASS_TIMES">
+                <span class="text-item-right">{{ $t('menu.massTimes') }}</span>
               </NuxtLink>
             </li>
             <li>
-              <span>Tiếng Việt</span>
+              <multi-language />
             </li>
           </ul>
           <div
@@ -387,14 +232,22 @@
 </template>
 
 <script>
+import menu from '~/configs/menu'
 import ButtonHamburger from '~/components/common/ButtonHamburger'
+import MultiLanguage from '~/components/partials/header/MultiLanguage'
 import { IMAGE, SCREEN_PATH, ICON } from '~/utils/constants'
 
 export default {
   name: 'AppHeader',
-  components: { ButtonHamburger },
+  components: {
+    ButtonHamburger,
+    MultiLanguage,
+    ChurchIcon: ICON.church,
+    ArrowBottomIcon: ICON.arrowBottom,
+  },
   data() {
     return {
+      menu,
       IMAGE,
       SCREEN_PATH,
       ICON,

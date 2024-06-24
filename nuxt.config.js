@@ -33,7 +33,7 @@ export default {
   css: ['~/assets/scss/main.scss', '~/assets/fonts/Mulish.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~plugins/bus' }],
+  plugins: [{ src: '~plugins/bus' }, { src: '~plugins/i18n' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -53,5 +53,27 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: null,
+
+    extend(config) {
+      // Tìm rule hiện tại đang xử lý file SVG
+      const svgRule = config.module.rules.find((rule) => rule.test.test('.svg'))
+
+      // Thay đổi rule hiện tại để không xử lý SVG bằng file-loader nữa
+      svgRule.test = /\.(png|jpe?g|gif|webp)$/
+
+      // Thêm rule mới cho vue-svg-loader để xử lý SVG như component
+      config.module.rules.push({
+        test: /\.svg$/,
+        oneOf: [
+          {
+            resourceQuery: /inline/,
+            use: ['babel-loader', 'vue-svg-loader'],
+          },
+          {
+            use: 'file-loader',
+          },
+        ],
+      })
+    },
   },
 }

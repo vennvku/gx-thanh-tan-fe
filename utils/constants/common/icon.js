@@ -18,6 +18,8 @@ import arrowMenu from '~/assets/icons/arrow_menu.svg'
 import rightArrow2 from '~/assets/icons/right_arrow_2.svg'
 import morning from '~/assets/icons/morning.svg'
 import night from '~/assets/icons/night.svg'
+import church from '~/assets/icons/church.svg?inline'
+import arrowBottom from '~/assets/icons/arrow_bottom.svg?inline'
 
 export const ICON = {
   accountCircle,
@@ -40,4 +42,6 @@ export const ICON = {
   rightArrow2,
   morning,
   night,
+  church,
+  arrowBottom,
 }
