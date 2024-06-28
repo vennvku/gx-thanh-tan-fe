@@ -23,6 +23,7 @@
 
         .wrapper-title {
           padding-right: 10px;
+          flex: 1;
 
           .title {
             font-weight: 700;
@@ -48,12 +49,16 @@
         }
 
         .thumb {
-          width: 196px;
-          min-height: 110px;
+          width: 40%;
+          height: 125px;
+
+          @media screen and (max-width: 767px) {
+            height: 100px;
+          }
 
           img {
-            width: 196px;
-            height: auto;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
           }
         }

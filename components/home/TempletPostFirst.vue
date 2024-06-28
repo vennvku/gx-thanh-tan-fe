@@ -31,11 +31,13 @@
                   <b-img :src="topArticle.src"></b-img>
                 </NuxtLink>
               </div>
-              <NuxtLink to="">
-                <h4 class="title-right">
-                  {{ topArticle.title }}
+              <div class="title-right">
+                <h4>
+                  <NuxtLink to="">
+                    {{ topArticle.title }}
+                  </NuxtLink>
                 </h4>
-              </NuxtLink>
+              </div>
             </div>
             <div class="post-bottom">
               <ul>
