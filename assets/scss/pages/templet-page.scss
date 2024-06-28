@@ -1,0 +1,78 @@
+@import 'assets/scss/variables';
+
+.chain-navs {
+  padding-bottom: 15px;
+
+  @media screen and (max-width: 1024px) {
+    padding-left: 10px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    li {
+      font-size: 14px;
+      font-weight: 400;
+      color: #7a7a7a;
+
+      &.active {
+        color: $primary-text-color;
+        font-weight: 600;
+      }
+
+      &.double-right-icon {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      a {
+        &:hover {
+          color: $secondary-text-color;
+        }
+      }
+    }
+  }
+}
+
+.wrapper-caption {
+  width: 100%;
+  height: 33px;
+  position: relative;
+  margin-bottom: 15px;
+
+  &::before {
+    background-color: #7a7a7a;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 22px;
+    left: 0;
+    right: 0px;
+    height: 2px;
+    z-index: 0;
+
+    @media screen and (max-width: 1024px) {
+      right: 10px;
+    }
+  }
+
+  .caption {
+    position: absolute;
+    color: $primary-text-color;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: $stafford;
+    z-index: 1;
+    background-color: $white-color;
+    padding-right: 10px;
+
+    @media screen and (max-width: 1024px) {
+      padding-left: 10px;
+    }
+  }
+}
+
+.section-container {
+  padding-top: 20px;
+}

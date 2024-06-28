@@ -5,6 +5,7 @@
   },
   "title": "Thanh Tan Parish",
   "menu": {
+    "home": "Home",
     "parish": {
       "heading": "Parish",
       "subMenus": {
@@ -14,7 +15,7 @@
       }
     },
     "news": {
-      "heading": "news",
+      "heading": "News",
       "subMenus": {
         "parishNews": "Parish News",
         "diocesanNews": "Diocesan News",

@@ -20,6 +20,7 @@ import morning from '~/assets/icons/morning.svg'
 import night from '~/assets/icons/night.svg'
 import church from '~/assets/icons/church.svg?inline'
 import arrowBottom from '~/assets/icons/arrow_bottom.svg?inline'
+import doubleRight from '~/assets/icons/double-right.svg'
 
 export const ICON = {
   accountCircle,
@@ -44,4 +45,5 @@ export const ICON = {
   night,
   church,
   arrowBottom,
+  doubleRight,
 }

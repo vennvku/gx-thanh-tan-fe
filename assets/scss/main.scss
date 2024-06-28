@@ -162,9 +162,9 @@ body {
 .pad-320 {
   @media screen and (min-width: 1024px) {
     width: calc(100% - 320px);
+    border-right: 1px solid $border-color;
   }
   width: 100%;
-  border-right: 1px solid $border-color;
 }
 
 .fit-320 {
@@ -178,6 +178,22 @@ body {
 .w50 {
   @media screen and (min-width: 1024px) {
     width: 50%;
+  }
+  width: 100%;
+}
+
+.pad-450 {
+  @media screen and (min-width: 1024px) {
+    width: calc(100% - 640px);
+    border-right: 1px solid $border-color;
+  }
+  width: 100%;
+}
+
+.fit-450 {
+  @media screen and (min-width: 1024px) {
+    width: 640px;
+    padding-left: 10px;
   }
   width: 100%;
 }
