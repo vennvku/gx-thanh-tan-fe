@@ -30,7 +30,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/scss/main.scss', '~/assets/fonts/Mulish.css'],
+  css: [
+    '~/assets/scss/main.scss',
+    '~/assets/fonts/Mulish.css',
+    '~/assets/fonts/NotoSerif.css',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [{ src: '~plugins/bus' }, { src: '~plugins/i18n' }],

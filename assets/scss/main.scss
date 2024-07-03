@@ -159,6 +159,13 @@ body {
   float: left;
 }
 
+.cont-view {
+  max-width: 856px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 0;
+}
+
 .pad-320 {
   @media screen and (min-width: 1024px) {
     width: calc(100% - 320px);
