@@ -4,24 +4,32 @@
       <div class="col-content pad-320">
         <div class="row">
           <div class="col-content w50 w50-head">
-            <mix-slide />
+            <mix-slide :slide-news="slideNews" :list-news="listNews" />
           </div>
+
           <div class="col-content w50 w50-head">
             <div class="mix-news">
               <div class="mix-news-top">
                 <ul>
                   <li v-for="(mainNew, index) in mainNews" :key="index">
                     <div class="wrapper-title">
-                      <NuxtLink to="" class="title">
-                        {{ mainNew.title }}
+                      <NuxtLink
+                        :to="`${mainNew.categories.url}/${mainNew.slug}`"
+                        class="title"
+                      >
+                        {{ mainNew.translations[$i18n.locale].title }}
                       </NuxtLink>
                       <div v-if="(index == 0) | (index == 1)" class="info">
-                        <NuxtLink to=""> {{ mainNew.tag }} </NuxtLink>
+                        <NuxtLink :to="mainNew.categories.url">
+                          {{ mainNew.categories.name[$i18n.locale] }}
+                        </NuxtLink>
                       </div>
                     </div>
                     <div v-if="(index == 0) | (index == 1)" class="thumb">
-                      <NuxtLink to="">
-                        <b-img :src="mainNew.src"></b-img>
+                      <NuxtLink
+                        :to="`${mainNew.categories.url}/${mainNew.slug}`"
+                      >
+                        <b-img :src="mainNew.photo"></b-img>
                       </NuxtLink>
                     </div>
                   </li>
@@ -110,6 +118,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import MixSlide from '~/components/home/MixSlide'
 import TempletPostFirst from '~/components/home/TempletPostFirst'
 import { ICON } from '~/utils/constants'
@@ -123,37 +132,40 @@ export default {
   data() {
     return {
       ICON,
-      mainNews: [
-        {
-          src: require('@/assets/img/1.jpg'),
-          title: 'Trò chơi ô chữ – Chúa nhật X Thường niên 2024 – Năm B',
-          tag: 'Tin Giáo Phận',
-        },
-        {
-          src: require('@/assets/img/2.jpg'),
-          title:
-            'Thiếu Nhi Thánh Thể Hạt thành phố Huế mừng lễ Mình Máu Thánh Chúa Kitô năm 2024',
-          tag: 'Tin Giáo Phận',
-        },
-        {
-          src: require('@/assets/img/3.jpg'),
-          title:
-            'TNTT Hiệp Đoàn Hải Vân Mừng Lễ Mình và Máu Thánh Chúa Kitô – Bổn mạng phong trào Thiếu Nhi Thánh Thể năm 2024',
-          tag: 'Tin Giáo Phận',
-        },
-        {
-          src: require('@/assets/img/4.jpg'),
-          title: 'Thánh Lễ Ban Bí tích Thêm Sức tại Giáo sở Nước Ngọt năm 2024',
-          tag: 'Tin Giáo Phận',
-        },
-        {
-          src: require('@/assets/img/5.jpg'),
-          title:
-            'Caritas Huế – Nối kết tình thân gia đình trẻ em OVC trong ngày sinh hoạt 02.6.2024',
-          tag: 'Tin Giáo Phận',
-        },
-      ],
+      mainNews: [],
+      slideNews: [],
+      listNews: [],
     }
+  },
+  async fetch() {
+    await this.$store.dispatch('article/article/getFeaturedLatestNews')
+  },
+  head() {
+    return {
+      title: this.$t('page.top'),
+    }
+  },
+  computed: {
+    ...mapState({
+      isCallApi: (state) => state.article.article.isCallApi,
+      featuredLatestNews: (state) => state.article.article.featuredLatestNews,
+    }),
+  },
+  watch: {
+    featuredLatestNews: {
+      handler(articles) {
+        if (articles && articles.count > 0) {
+          this.slideNews = articles.result.slice(0, 7)
+          this.listNews = articles.count > 7 ? articles.result.slice(7, 10) : []
+          this.mainNews = articles.count > 10 ? articles.result.slice(10) : []
+        } else {
+          this.slideNews = []
+          this.listNews = []
+          this.mainNews = []
+        }
+      },
+      immediate: true,
+    },
   },
 }
 </script>
