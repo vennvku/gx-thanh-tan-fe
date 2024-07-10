@@ -112,6 +112,14 @@
                 width: 100%;
               }
 
+              &.active {
+                color: $secondary-text-color;
+
+                &::after {
+                  width: 100%;
+                }
+              }
+
               .text-item {
                 width: 100%;
                 height: 100%;

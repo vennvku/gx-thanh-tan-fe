@@ -112,7 +112,7 @@
 
     <div class="row">
       <div class="col-content pad-320"><templet-post-first /></div>
-      <div class="col-content fit-320">2</div>
+      <div class="col-content fit-320">2 3</div>
     </div>
   </div>
 </template>
@@ -166,6 +166,9 @@ export default {
       },
       immediate: true,
     },
+  },
+  mounted() {
+    this.$store.dispatch('common/path/setCurrentPath', this.$route.path)
   },
 }
 </script>

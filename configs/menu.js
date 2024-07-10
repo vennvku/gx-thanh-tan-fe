@@ -3,6 +3,7 @@ import { SCREEN_PATH } from '~/utils/constants'
 export default [
   {
     title: 'parish',
+    router: 'parish',
     subMenus: [
       {
         title: 'parishHistory',
@@ -20,6 +21,7 @@ export default [
   },
   {
     title: 'news',
+    router: 'news',
     subMenus: [
       {
         title: 'parishNews',
@@ -45,6 +47,7 @@ export default [
   },
   {
     title: 'associations',
+    router: 'associations',
     subMenus: [
       {
         title: 'parishCaritas',

@@ -124,7 +124,10 @@
         <div class="menu-bar">
           <ul ref="menuside" class="menu-side">
             <li class="menu-item">
-              <div class="wrapper-item">
+              <div
+                class="wrapper-item"
+                :class="{ active: currentPath === '/' }"
+              >
                 <NuxtLink to="/">
                   <span class="icon-home">
                     <church-icon />
@@ -135,7 +138,10 @@
 
             <li v-for="(item, key) in menu" :key="key" class="menu-item">
               <span v-if="item.subMenus">
-                <div class="wrapper-item">
+                <div
+                  class="wrapper-item"
+                  :class="{ active: currentPath === item.router }"
+                >
                   <h4 class="text-item">
                     {{ $t(`menu.${item.title}.heading`) }}
                     <span class="arrow">
@@ -164,7 +170,10 @@
               </span>
 
               <span v-else>
-                <div class="wrapper-item">
+                <div
+                  class="wrapper-item"
+                  :class="{ active: currentPath === item.router }"
+                >
                   <NuxtLink :to="item.router">
                     <h4 class="text-item">{{ $t(`menu.${item.title}`) }}</h4>
                   </NuxtLink>
@@ -232,6 +241,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import menu from '~/configs/menu'
 import ButtonHamburger from '~/components/common/ButtonHamburger'
 import MultiLanguage from '~/components/partials/header/MultiLanguage'
@@ -259,6 +269,13 @@ export default {
       isShowSearchBar: false,
     }
   },
+
+  computed: {
+    ...mapState({
+      currentPath: (state) => state.common.path.currentPath,
+    }),
+  },
+
   mounted() {
     this.initialNavOffset = this.$refs.navbar.offsetTop
     window.addEventListener('scroll', this.onScroll)

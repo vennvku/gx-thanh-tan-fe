@@ -62,6 +62,9 @@ export default {
       article: (state) => state.article.article.article,
     }),
   },
+  mounted() {
+    this.$store.dispatch('common/path/setCurrentPath', 'news')
+  },
 }
 </script>
 

@@ -46,7 +46,7 @@ import TempletListArticlePage from '~/components/pages/TempletListArticlePage'
 import { SCREEN_PATH, ICON } from '~/utils/constants'
 
 export default {
-  name: 'ParishHistory',
+  name: 'ParishNews',
   components: {
     TempletSectionTopPage,
     TempletListArticlePage,
@@ -57,6 +57,14 @@ export default {
       SCREEN_PATH,
       ICON,
     }
+  },
+  head() {
+    return {
+      title: this.$t('page.parishNews'),
+    }
+  },
+  mounted() {
+    this.$store.dispatch('common/path/setCurrentPath', 'news')
   },
 }
 </script>
