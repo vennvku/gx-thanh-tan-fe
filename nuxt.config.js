@@ -19,7 +19,14 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        type: 'text/css',
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
+      },
+    ],
   },
 
   // Transition page mode
@@ -34,6 +41,7 @@ export default {
     '~/assets/scss/main.scss',
     '~/assets/fonts/Mulish.css',
     '~/assets/fonts/NotoSerif.css',
+    '~/assets/fonts/Montserrat.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -42,6 +50,8 @@ export default {
     { src: '~plugins/bus' },
     { src: '~plugins/i18n' },
     { src: '~/plugins/repositories.js' },
+    { src: '~plugins/vee-validate' },
+    { src: '~plugins/vue-toastification' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

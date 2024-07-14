@@ -7,6 +7,16 @@
     "top": "Thanh Tan Parish | Top Page",
     "parishNews": "Parish News"
   },
+  "validations": {
+    "required": "Required fields",
+    "requiredWhen": "Required fields",
+    "email": "Invalid email address",
+    "passwordRegex": "Password must contain at least 8 characters, at least one number and both lower and uppercase letters and special characters",
+    "password": "Password confirmation does not match",
+    "min": "This field must be at least {min} characters.",
+    "max": "This field is limited to {max} characters.",
+    "phoneNumber": "Invalid phone number"
+  },
   "title": "Thanh Tan Parish",
   "menu": {
     "home": "Home",
@@ -39,5 +49,11 @@
     "contact": "Contact",
     "articleLatest": "Latest",
     "massTimes": "Mass Times"
+  },
+  "admin": {
+    "page": {
+      "dashboard": "Dashboard",
+      "signIn": "Sign in"
+    }
   }
 }

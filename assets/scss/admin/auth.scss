@@ -1,0 +1,100 @@
+@import 'assets/scss/variables';
+
+.wrapper-login-admin {
+  background-color: #c9d6ff;
+  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+
+  font-family: $montserrat;
+
+  .login-admin {
+    display: flex;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+
+    .sign-in {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .wrapper-form-sign-in {
+        width: 70%;
+
+        .title-sign-in {
+          font-size: 32px;
+          font-weight: 700;
+          text-align: center;
+          padding-bottom: 20px;
+        }
+
+        .btn-login {
+          margin-top: 40px;
+        }
+      }
+
+      // button {
+      //   background-color: #512da8;
+      //   color: #fff;
+      //   font-size: 12px;
+      //   padding: 10px 45px;
+      //   border: 1px solid transparent;
+      //   border-radius: 8px;
+      //   font-weight: 600;
+      //   letter-spacing: 0.5px;
+      //   text-transform: uppercase;
+      //   margin-top: 10px;
+      //   cursor: pointer;
+      // }
+    }
+
+    .toggle-container {
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 150px 0 0 100px;
+
+      .toggle {
+        background-color: #512da8;
+        height: 100%;
+        background: linear-gradient(to right, #5c6bc0, #512da8);
+        color: #fff;
+        position: relative;
+        height: 100%;
+
+        .toggle-panel {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          padding: 0 30px;
+          text-align: center;
+
+          h1 {
+            font-size: 32px;
+            font-weight: 700;
+          }
+
+          p {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.3px;
+            margin: 20px 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -2,6 +2,7 @@
 $header-height: 215px;
 $balance-height: 40px;
 $navbar-height: 50px;
+$close-sidebar-width: 80px;
 
 $box-detail-width: 500px;
 $tablet-box-detail-width: 400px;
@@ -43,6 +44,32 @@ $success-color: rgb(40, 167, 69);
 $light-intermediate-color: rgb(255, 185, 102);
 $background-sidebar-color: rgb(242, 242, 242);
 
+$color: rgb(23, 22, 22);
+$bg: rgb(241, 244, 246);
+$light-bg: rgba(255, 255, 255, 0.45);
+$primary-color: rgb(255, 255, 255);
+$light-primary-color: rgb(238, 238, 238);
+$lighter-primary-color: rgb(217, 217, 217);
+$secondary-color: rgb(97, 118, 247);
+$light-secondary-color: rgb(133, 160, 254);
+$lighter-secondary-color: rgb(166, 186, 255);
+$lightest-primary-color: rgb(224, 243, 255);
+$intermediate-color: rgb(255, 166, 62);
+$light-intermediate-color: rgb(255, 201, 138);
+$lighter-intermediate-color: rgb(252, 211, 164);
+$divide-color: #b7b7b7;
+
+$dark-mode-color: rgb(255, 255, 255);
+$dark-mode-bg: rgb(30, 41, 59);
+$dark-mode-light-bg: rgb(51, 63, 82, 0.45);
+$dark-mode-primary-color: rgb(15, 23, 42);
+$dark-mode-light-primary-color: rgb(74, 74, 75);
+$dark-mode-lighter-primary-color: rgb(145, 145, 145);
+$dark-secondary-color: #dce3fa;
+$dark-light-secondary-color: #3c3d49;
+$dark-lighter-secondary-color: #3c3d49;
+$dark-divide-color: #dee2e6;
+
 $white-color: #fff;
 $black-color: rgba(0, 0, 0, 1);
 $gray-color: rgb(100, 100, 100);
@@ -53,12 +80,20 @@ $border-color: #ccc;
 $primary-text-color: #28262c;
 $secondary-text-color: rgb(226 0 7);
 
+$form-margin-left: 40px;
+$small-form-margin-left: 30px;
+
 // Font size
 $default-font-size: 0.82rem;
 $default-mobile-font-size: 0.8rem;
 
+// Time
+$transition-duration: 0.3s;
+
 $stafford: 'Stafford', serif;
 
 $noto-serif: 'Noto Serif', 'Times New Roman', Times, Georgia, serif;
+
+$montserrat: 'Montserrat', sans-serif;
 
 $test-bg: linear-gradient(220.55deg, #dde4ff 0%, #8da2ee 100%);

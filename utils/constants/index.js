@@ -1,8 +1,19 @@
 import { IMAGE } from '~/utils/constants/common/image'
 import { SCREEN_PATH } from '~/utils/constants/common/screenPath'
 import { ICON } from '~/utils/constants/common/icon'
+import sectionTitleLine from '~/utils/constants/common/sectionTitleLine'
+import regex from '~/utils/constants/common/regex'
 import errorCode from '~/utils/constants/code/errorCode'
 import errorMessage from '~/utils/constants/code/errorMessage'
 import successCode from '~/utils/constants/code/successCode'
 
-export { SCREEN_PATH, IMAGE, ICON, errorCode, errorMessage, successCode }
+export {
+  SCREEN_PATH,
+  IMAGE,
+  ICON,
+  sectionTitleLine,
+  errorCode,
+  errorMessage,
+  successCode,
+  regex,
+}

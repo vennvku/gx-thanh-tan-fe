@@ -7,6 +7,16 @@
     "top": "Giáo xứ Thanh Tân | Trang chủ",
     "parishNews": "Tin Giáo xứ"
   },
+  "validations": {
+    "required": "Email không được để trống.",
+    "requiredWhen": "Mật khẩu không được để trống.",
+    "email": "Địa chỉ Email không hợp lệ.",
+    "passwordRegex": "Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất một số, chữ thường, chữ hoa và ký tự đặc biệt.",
+    "password": "Mật khẩu xác nhận không khớp.",
+    "min": "Phải có ít nhất {min} kí tự.",
+    "max": "Chỉ có nhiều nhất {max} kí tự.",
+    "phoneNumber": "Số điện thoại không hợp lệ."
+  },
   "title": "Giáo xứ Thanh Tân",
   "menu": {
     "home": "Trang chủ",
@@ -39,5 +49,11 @@
     "contact": "Liên hệ",
     "articleLatest": "Mới nhất",
     "massTimes": "Giờ Lễ"
+  },
+  "admin": {
+    "page": {
+      "dashboard": "Dashboard",
+      "signIn": "Đăng nhập"
+    }
   }
 }

@@ -22,4 +22,6 @@ export const SCREEN_PATH = {
     ARTICLE_LATEST: 'article-latest',
     MASS_TIMES: 'mass-times',
   },
+  DASHBOARD: 'dashboard',
+  SIGN_IN: 'sign-in',
 }
