@@ -1,5 +1,5 @@
 export const IMAGE = {
-  logo: '/images/logo.svg',
+  logo: '/images/logo.png',
   miniLogo: '/images/mini_logo.svg',
   banner: '/images/banner.jpg',
   lang: {

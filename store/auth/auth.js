@@ -20,7 +20,7 @@ export const actions = {
 
       if (+status === successCode.OK && data) {
         storage.saveAuth(data.access_token)
-        await this.$router.push({ path: SCREEN_PATH.DASHBOARD })
+        await this.$router.push({ name: SCREEN_PATH.ADMIN.DASHBOARD })
       }
     } catch (error) {
       const { status } = error.response

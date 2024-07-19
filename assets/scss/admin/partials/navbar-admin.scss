@@ -1,0 +1,91 @@
+@import 'assets/scss/variables';
+
+.navbar-admin {
+  height: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  border-bottom: 1px solid #cdd1e1;
+  box-shadow: 0px 5px 21px -5px #cdd1e1;
+  background-color: #fff;
+  z-index: 999;
+
+  .navbar-brand-wrapper {
+    width: $sidebar-width;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #f5f7ff;
+    padding: 0px 20px;
+    transition: width 0.4s ease-in-out, padding 0.4s ease-in-out;
+
+    &.collapse-brand {
+      width: $close-sidebar-width;
+      padding: 0px 10px;
+    }
+
+    .logo-navbar-admin {
+      flex: 1;
+
+      img {
+        width: 30px;
+        height: auto;
+      }
+    }
+
+    .wrapper-toggle-navbar-admin {
+      cursor: pointer;
+      transition: transform 0.5s ease-in-out;
+
+      img {
+        width: 20px;
+        height: auto;
+      }
+
+      &.collapse-button {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .navbar-menu-wrapper {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    .wrapper-nav-profile {
+      .nav-profile {
+        .avatar {
+          width: 30px;
+          height: 30px;
+          border-radius: 100%;
+          margin-right: 10px;
+          background-color: #ccc;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .name-profile {
+          color: $primary-text-color;
+          padding-right: 5px;
+        }
+
+        .wrapper-action-profile {
+          display: flex;
+          align-items: center;
+
+          .icon-logout {
+            width: 20px;
+            height: auto;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

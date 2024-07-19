@@ -1,0 +1,184 @@
+@import 'assets/scss/variables';
+
+.sidebar-admin {
+  width: $sidebar-width;
+  z-index: 11;
+  // position: fixed;
+  height: 100vh;
+  transition: width 0.4s ease-in-out;
+
+  &.collapse-sidebar-admin {
+    width: $close-sidebar-width;
+
+    .nav-sidebar-admin {
+      .nav-item-sidebar-admin {
+        padding: 10px 5px;
+        background-color: #f1f1f1;
+
+        .wrapper-nav-item-left {
+          display: block;
+
+          .nav-item-left {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .title-sidebar-admin {
+              font-size: 10px;
+              padding-top: 5px;
+            }
+
+            .icon-sidebar-admin {
+              margin-right: 0px;
+            }
+          }
+
+          .right-arrow-icon {
+            display: none;
+          }
+        }
+
+        .sub-menu-sidebar-admin {
+          margin: 0;
+          padding: 0;
+
+          .list-sub-menu-sidebar-admin {
+            .item-sub-menu-sidebar-admin {
+              padding-top: 0;
+              margin-top: 5px;
+
+              .border-left-admin {
+                display: none;
+              }
+
+              .border-left-radius-admin {
+                display: none;
+              }
+
+              .title-sub-menu-sidebar-admin {
+                position: relative;
+                top: 0;
+                left: 0;
+                font-size: 10px;
+                width: 100%;
+                padding: 0;
+                padding: 5px 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .nav-sidebar-admin {
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .no-submenu {
+      &.active {
+        background-color: $bg-active-item-menu-admin;
+        color: $white-color;
+      }
+
+      &:hover {
+        background-color: $bg-active-item-menu-admin;
+        color: $white-color;
+      }
+    }
+
+    .nav-item-sidebar-admin {
+      padding: 10px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #6c7383;
+      font-size: 15px;
+      margin-bottom: 5px;
+
+      .wrapper-nav-item-left {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .nav-item-left {
+          display: flex;
+          align-items: center;
+
+          .title-sidebar-admin {
+            font-size: 16px;
+          }
+
+          .icon-sidebar-admin {
+            font-size: 20px;
+            margin-right: 10px;
+          }
+        }
+
+        .right-arrow-icon {
+          font-size: 20px;
+        }
+      }
+
+      .sub-menu-sidebar-admin {
+        margin-left: 8px;
+        padding-bottom: 10px;
+        margin-top: 5px;
+
+        display: none;
+        transition: display 0.4s ease-in-out;
+
+        &.is-toggle-submenu {
+          display: block;
+        }
+
+        .list-sub-menu-sidebar-admin {
+          .item-sub-menu-sidebar-admin {
+            display: flex;
+            position: relative;
+            padding-top: 15px;
+
+            .border-left-admin {
+              position: absolute;
+              width: 2px;
+              background-color: #cdd1e1;
+              height: 100%;
+              top: -5px;
+              left: 0px;
+            }
+
+            .border-left-radius-admin {
+              padding-top: 25px;
+              width: 20px;
+              height: 10px;
+              border-bottom: 2px solid #cdd1e1;
+              border-left: 2px solid #cdd1e1;
+              border-bottom-left-radius: 5px;
+              // margin-left: 1px;
+            }
+
+            .title-sub-menu-sidebar-admin {
+              position: absolute;
+              width: calc(100% - 22px);
+              top: 25px;
+              left: 17px;
+              font-size: 14px;
+              padding: 5px 10px;
+              border-radius: 5px;
+
+              &.active {
+                background-color: $bg-active-item-menu-admin;
+                color: $white-color;
+              }
+
+              &:hover {
+                background-color: $bg-active-item-menu-admin;
+                color: $white-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

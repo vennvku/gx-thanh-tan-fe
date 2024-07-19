@@ -17,6 +17,18 @@
     "max": "This field is limited to {max} characters.",
     "phoneNumber": "Invalid phone number"
   },
+  "error": {
+    "pageErrors": {
+      "pageNotFound": "404 Not Found",
+      "otherError": "An error occurred"
+    },
+    "serverError": {
+      "loginFailed": "Email address or password is incorrect. Input correctly"
+    }
+  },
+  "success": {
+    "logout": "You were successfully logged out. See you again"
+  },
   "title": "Thanh Tan Parish",
   "menu": {
     "home": "Home",
@@ -52,8 +64,30 @@
   },
   "admin": {
     "page": {
+      "signIn": "Sign in",
       "dashboard": "Dashboard",
-      "signIn": "Sign in"
+      "articleManagement": "Article Management",
+      "categoryManagement": "Category Management",
+      "featuredArticleManagement": "Featured Article Management",
+      "setting": "Setting",
+      "help": "Help"
+    },
+    "menu": {
+      "dashboard": {
+        "heading": "Dashboard"
+      },
+      "content": {
+        "heading": "Content",
+        "articleManagement": "Articles",
+        "categoryManagement": "Category",
+        "featuredArticleManagement": "Featured Articles"
+      },
+      "setting": {
+        "heading": "Setting"
+      },
+      "help": {
+        "heading": "Help"
+      }
     }
   }
 }

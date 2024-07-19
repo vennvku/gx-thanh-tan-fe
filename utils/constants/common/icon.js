@@ -4,7 +4,7 @@ import email from '~/assets/icons/email.svg'
 import leftArrow from '~/assets/icons/left_arrow.svg'
 import rightArrow from '~/assets/icons/right_arrow.svg'
 import logout from '~/assets/icons/logout.svg'
-import setting from '~/assets/icons/setting.svg'
+import setting from '~/assets/icons/setting.svg?inline'
 import document from '~/assets/icons/document.svg'
 import skip from '~/assets/icons/skip.svg'
 import alert from '~/assets/icons/alert.svg'
@@ -21,6 +21,14 @@ import night from '~/assets/icons/night.svg'
 import church from '~/assets/icons/church.svg?inline'
 import arrowBottom from '~/assets/icons/arrow_bottom.svg?inline'
 import doubleRight from '~/assets/icons/double-right.svg'
+import arrowBottom2 from '~/assets/icons/arrow_bottom.svg'
+import avatarDefault from '~/assets/icons/avatar_default.svg'
+import dashboard from '~/assets/icons/dashboard.svg?inline'
+import content from '~/assets/icons/content.svg?inline'
+import rightArrowAdmin from '~/assets/icons/right_arrow_admin.svg?inline'
+import menu from '~/assets/icons/menu.svg'
+import exclamation from '~/assets/icons/exclamation.svg?inline'
+import arrowBottomAdmin from '~/assets/icons/arrow_bottom_admin.svg?inline'
 
 export const ICON = {
   accountCircle,
@@ -46,4 +54,12 @@ export const ICON = {
   church,
   arrowBottom,
   doubleRight,
+  arrowBottom2,
+  avatarDefault,
+  dashboard,
+  content,
+  rightArrowAdmin,
+  menu,
+  exclamation,
+  arrowBottomAdmin,
 }

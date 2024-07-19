@@ -204,3 +204,27 @@ body {
   }
   width: 100%;
 }
+
+.nav-profile {
+  .btn {
+    display: flex;
+    align-items: center;
+    box-shadow: none !important;
+
+    &.dropdown-toggle {
+      background-color: transparent !important;
+      user-select: none;
+      transition: color 0.15s, background-color 0.15s, border-color 0.15s,
+        box-shadow 0.15s;
+      border-radius: 20px;
+    }
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

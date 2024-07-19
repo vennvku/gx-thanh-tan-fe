@@ -17,6 +17,18 @@
     "max": "Chỉ có nhiều nhất {max} kí tự.",
     "phoneNumber": "Số điện thoại không hợp lệ."
   },
+  "error": {
+    "pageErrors": {
+      "pageNotFound": "404 Not Found",
+      "otherError": "An error occurred"
+    },
+    "serverError": {
+      "loginFailed": "Địa chỉ Email hoặc Mật khẩu không chính xác. Vui lòng nhập lại!!!"
+    }
+  },
+  "success": {
+    "logout": "Bạn đã Đăng xuất thành công. Hẹn gặp lại!!!"
+  },
   "title": "Giáo xứ Thanh Tân",
   "menu": {
     "home": "Trang chủ",
@@ -52,8 +64,30 @@
   },
   "admin": {
     "page": {
-      "dashboard": "Dashboard",
-      "signIn": "Đăng nhập"
+      "signIn": "Đăng nhập",
+      "dashboard": "Dashboard Vi",
+      "articleManagement": "Quản lý Bài viết",
+      "categoryManagement": "Quản lý Danh mục",
+      "featuredArticleManagement": "Quản lý Bài viết Nổi bật",
+      "setting": "Cài đặt",
+      "help": "Trợ giúp"
+    },
+    "menu": {
+      "dashboard": {
+        "heading": "Dashboard"
+      },
+      "content": {
+        "heading": "Content",
+        "articleManagement": "Articles",
+        "categoryManagement": "Category",
+        "featuredArticleManagement": "Featured Articles"
+      },
+      "setting": {
+        "heading": "Setting"
+      },
+      "help": {
+        "heading": "Help"
+      }
     }
   }
 }
