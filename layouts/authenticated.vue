@@ -1,9 +1,13 @@
 <template>
   <div class="authenticated-layout">
-    <navbar-admin />
-    <div class="app-main">
-      <sidebar-admin />
+    <sidebar-admin />
+
+    <div
+      class="app-main"
+      :class="{ 'collapse-sidebar-admin': isCollapseSidebarAdmin }"
+    >
       <div class="app-main__outer">
+        <navbar-admin />
         <b-container class="p-0 m-0">
           <nuxt />
         </b-container>
@@ -30,26 +34,18 @@ export default {
   data() {
     return {
       ICON,
-      closeSidebar: false,
-      openMobileSidebar: false,
+      isCollapseSidebarAdmin: false,
       screenWidth: window.innerWidth,
       key: 0,
     }
   },
 
   mounted() {
-    // Get current window width
-    this.$nextTick(() => {
-      window.addEventListener('resize', this.onResize)
-    })
-    // Event close sidebar
-    this.$bus.$on('close-sidebar', () => {
-      this.closeSidebar = !this.closeSidebar
-    })
-    this.$bus.$on('open-mobile-sidebar', () => {
-      this.openMobileSidebar = !this.openMobileSidebar
+    this.$bus.$on('collapse-sidebar-admin', () => {
+      this.isCollapseSidebarAdmin = !this.isCollapseSidebarAdmin
     })
   },
+
   beforeDestroy() {
     window.removeEventListener('resize', this.onResize)
   },
@@ -66,19 +62,23 @@ export default {
 
 .authenticated-layout {
   display: flex;
-
-  flex-direction: column;
   margin: 0;
 
   .app-main {
+    flex: 1;
     display: flex;
-    padding-top: 60px;
+    padding-left: $sidebar-width;
     min-height: 100vh;
+    flex-direction: column;
+    transition: padding-left 0.4s ease-in-out;
+
+    &.collapse-sidebar-admin {
+      padding-left: $close-sidebar-width;
+    }
 
     .app-main__outer {
       flex: 1;
-      background-color: #f5f7ff;
-      padding: 20px;
+      padding: 10px;
     }
   }
 }

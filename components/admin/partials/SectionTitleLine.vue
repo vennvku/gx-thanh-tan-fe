@@ -20,5 +20,6 @@ export default {
 <style lang="scss" scoped>
 .section-title-admin {
   font-size: 20px;
+  font-weight: 700;
 }
 </style>

@@ -1,20 +1,5 @@
 <template>
   <div class="navbar-admin">
-    <div
-      class="navbar-brand-wrapper"
-      :class="{ 'collapse-brand': isCollapsed }"
-    >
-      <div class="logo-navbar-admin">
-        <b-img :src="IMAGE.miniLogo"></b-img>
-      </div>
-      <div
-        class="wrapper-toggle-navbar-admin"
-        :class="{ 'collapse-button': isCollapsed }"
-        @click="toggleNavbarAdmin()"
-      >
-        <b-img :src="ICON.menu"></b-img>
-      </div>
-    </div>
     <div class="navbar-menu-wrapper">
       <div class="">
         <section-title-line :section-title="getSectionTitle" />
@@ -68,10 +53,6 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch('auth/auth/logout')
-    },
-    toggleNavbarAdmin() {
-      this.$bus.$emit('collapse-sidebar-admin')
-      this.isCollapsed = !this.isCollapsed
     },
   },
 }
