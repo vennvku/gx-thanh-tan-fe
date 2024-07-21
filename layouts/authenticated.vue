@@ -8,9 +8,9 @@
     >
       <div class="app-main__outer">
         <navbar-admin />
-        <b-container class="p-0 m-0">
+        <div class="main-content-admin">
           <nuxt />
-        </b-container>
+        </div>
       </div>
     </div>
     <app-loading />
@@ -63,17 +63,20 @@ export default {
 .authenticated-layout {
   display: flex;
   margin: 0;
+  max-width: 100vw;
 
   .app-main {
     flex: 1;
     display: flex;
-    padding-left: $sidebar-width;
+    margin-left: $sidebar-width;
     min-height: 100vh;
     flex-direction: column;
-    transition: padding-left 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    max-width: calc(100vw - $sidebar-width - 10px);
 
     &.collapse-sidebar-admin {
-      padding-left: $close-sidebar-width;
+      margin-left: $close-sidebar-width;
+      max-width: calc(100vw - $close-sidebar-width - 10px);
     }
 
     .app-main__outer {

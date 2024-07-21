@@ -8,6 +8,7 @@
 // @import 'assets/scss/pagination';
 // @import 'assets/scss/tabs';
 // @import 'assets/scss/dropdown';
+@import 'assets/scss/pagination';
 
 @font-face {
   font-family: 'Stafford';
@@ -225,6 +226,27 @@ body {
 
     &:hover {
       opacity: 0.8;
+    }
+  }
+}
+
+.top-management {
+  .btn {
+    box-shadow: none !important;
+
+    &.dropdown-toggle {
+      background-color: transparent !important;
+      user-select: none;
+      transition: color 0.15s, background-color 0.15s, border-color 0.15s,
+        box-shadow 0.15s;
+      width: 160px;
+      border: 1px solid $primary-text-color;
+      color: $primary-text-color;
+      border-radius: 10px;
+    }
+
+    &::after {
+      display: none;
     }
   }
 }

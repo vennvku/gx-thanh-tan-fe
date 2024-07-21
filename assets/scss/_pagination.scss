@@ -1,0 +1,46 @@
+@import 'variables';
+
+.pagination {
+  &.pagination-table {
+    .page-item {
+      margin: 0 5px;
+      font-size: 16px;
+
+      .page-link {
+        background-color: transparent;
+        color: $primary-text-color;
+        border-radius: 5px;
+        border-color: #ccc;
+        border-width: 2px;
+
+        &:focus {
+          box-shadow: unset;
+        }
+      }
+
+      &.active {
+        .page-link {
+          z-index: 3;
+          color: $white-color;
+          background-color: #ff854c;
+          border-color: #ff854c;
+        }
+      }
+
+      &:not(.disabled) {
+        &:hover {
+          @extend .active;
+        }
+      }
+
+      &.disabled {
+        user-select: none;
+        .page-link {
+          z-index: 3;
+          background-color: #ccc;
+          border-color: #ccc;
+        }
+      }
+    }
+  }
+}

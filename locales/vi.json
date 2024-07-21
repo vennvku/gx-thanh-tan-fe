@@ -24,6 +24,9 @@
     },
     "serverError": {
       "loginFailed": "Địa chỉ Email hoặc Mật khẩu không chính xác. Vui lòng nhập lại!!!"
+    },
+    "data": {
+      "empty": "Không có dữ liệu để hiển thị."
     }
   },
   "success": {
@@ -89,5 +92,43 @@
         "heading": "Help"
       }
     }
+  },
+  "articleManagement": {
+    "data": {
+      "header": {
+        "no": "No.",
+        "featured": "Nổi bật",
+        "status": "Trạng thái",
+        "title": "Tiêu đề",
+        "author": "Người tạo",
+        "created_at": "Ngày tạo",
+        "id": "ID"
+      }
+    },
+    "modal": {
+      "delete": "Are you sure you want to remove the Article?"
+    }
+  },
+  "table": {
+    "total": "Tổng",
+    "article": "Bài viết"
+  },
+  "button": {
+    "new": "Tạo mới"
+  },
+  "select": {
+    "action": "Thao tác",
+    "publish": "Công khai",
+    "unPublish": "Không công khai",
+    "feature": "Nổi bật",
+    "unFeature": "Không nổi bật",
+    "trash": "Xoá",
+    "filterOptions": "Tuỳ chọn bộ lọc",
+    "clear": "Xoá",
+    "idDescending": "ID Giảm dần",
+    "idAscending": "ID Tăng dần"
+  },
+  "input": {
+    "search": "Nhập từ khoá tìm kiếm"
   }
 }

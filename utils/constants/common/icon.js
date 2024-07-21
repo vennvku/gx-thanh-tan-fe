@@ -29,6 +29,14 @@ import rightArrowAdmin from '~/assets/icons/right_arrow_admin.svg?inline'
 import menu from '~/assets/icons/menu.svg'
 import exclamation from '~/assets/icons/exclamation.svg?inline'
 import arrowBottomAdmin from '~/assets/icons/arrow_bottom_admin.svg?inline'
+import add from '~/assets/icons/add.svg?inline'
+import threeDotsLine from '~/assets/icons/three_dots_line.svg?inline'
+import publish from '~/assets/icons/publish.svg?inline'
+import unPublish from '~/assets/icons/un_publish.svg?inline'
+import feature from '~/assets/icons/feature.svg?inline'
+import unFeature from '~/assets/icons/un_feature.svg?inline'
+import trash from '~/assets/icons/trash.svg?inline'
+import searchAdmin from '~/assets/icons/search_admin.svg?inline'
 
 export const ICON = {
   accountCircle,
@@ -62,4 +70,12 @@ export const ICON = {
   menu,
   exclamation,
   arrowBottomAdmin,
+  add,
+  threeDotsLine,
+  publish,
+  unPublish,
+  feature,
+  unFeature,
+  trash,
+  searchAdmin,
 }

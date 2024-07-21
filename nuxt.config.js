@@ -52,6 +52,8 @@ export default {
     { src: '~/plugins/repositories.js' },
     { src: '~plugins/vee-validate' },
     { src: '~plugins/vue-toastification' },
+    { src: '~plugins/vue-good-table' },
+    { src: '~plugins/filter' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

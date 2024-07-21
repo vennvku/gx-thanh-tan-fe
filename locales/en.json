@@ -24,6 +24,9 @@
     },
     "serverError": {
       "loginFailed": "Email address or password is incorrect. Input correctly"
+    },
+    "data": {
+      "empty": "No data to show."
     }
   },
   "success": {
@@ -89,5 +92,43 @@
         "heading": "Help"
       }
     }
+  },
+  "articleManagement": {
+    "data": {
+      "header": {
+        "no": "No.",
+        "featured": "Featured",
+        "status": "Status",
+        "title": "Title",
+        "author": "Author",
+        "created_at": "Date Created",
+        "id": "ID"
+      }
+    },
+    "modal": {
+      "delete": "Are you sure you want to remove the Article?"
+    }
+  },
+  "table": {
+    "total": "Total",
+    "article": "Article"
+  },
+  "button": {
+    "new": "New"
+  },
+  "select": {
+    "action": "Action",
+    "publish": "Publish",
+    "unPublish": "Unpublish",
+    "feature": "Feature",
+    "unFeature": "Unfeature",
+    "trash": "Trash",
+    "filterOptions": "Filter Options",
+    "clear": "clear",
+    "idDescending": "ID descending",
+    "idAscending": "ID ascending"
+  },
+  "input": {
+    "search": "Type to search"
   }
 }
