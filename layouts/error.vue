@@ -10,6 +10,8 @@
       <h1 v-else>
         {{ $t('error.pageErrors.otherError') }}
       </h1>
+
+      <b-button @click="goHome">Back to Home</b-button>
     </div>
   </div>
 </template>
@@ -18,6 +20,7 @@
 import { errorCode, IMAGE } from '~/utils/constants'
 export default {
   name: 'ErrorLayout',
+  layout: 'default-admin',
   props: {
     error: {
       type: Object,
@@ -29,6 +32,11 @@ export default {
       errorCode,
       IMAGE,
     }
+  },
+  methods: {
+    goHome() {
+      this.$router.push('/')
+    },
   },
 }
 </script>

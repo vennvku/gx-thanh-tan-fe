@@ -136,32 +136,39 @@
               </div>
             </li>
 
-            <li v-for="(item, key) in menu" :key="key" class="menu-item">
-              <span v-if="item.subMenus">
+            <li
+              v-for="(category, key) in categoriesData"
+              :key="key"
+              class="menu-item"
+            >
+              <span v-if="category.has_children">
                 <div
                   class="wrapper-item"
-                  :class="{ active: currentPath === item.router }"
+                  :class="{ active: currentPath === category.url }"
                 >
                   <h4 class="text-item">
-                    {{ $t(`menu.${item.title}.heading`) }}
+                    {{ category.name[$i18n.locale] }}
                     <span class="arrow">
                       <arrow-bottom-icon />
                     </span>
                   </h4>
                 </div>
+
                 <div
                   class="dropdown-sub"
                   :style="{ top: positionTopMenu + 'px' }"
                 >
                   <b-container fluid class="wrapper-sub-menu cont-wrap">
                     <div
-                      v-for="(subMenu, keySubMenu) in item.subMenus"
-                      :key="keySubMenu"
+                      v-for="(
+                        categoryChildren, keycategoryChildren
+                      ) in category.children"
+                      :key="keycategoryChildren"
                       class="sub-menu-item"
                     >
-                      <NuxtLink :to="subMenu.router">
+                      <NuxtLink :to="categoryChildren.url">
                         <span class="sub-menu-text-item">{{
-                          $t(`menu.${item.title}.subMenus.${subMenu.title}`)
+                          categoryChildren.name[$i18n.locale]
                         }}</span>
                       </NuxtLink>
                     </div>
@@ -172,10 +179,10 @@
               <span v-else>
                 <div
                   class="wrapper-item"
-                  :class="{ active: currentPath === item.router }"
+                  :class="{ active: currentPath === category.url }"
                 >
-                  <NuxtLink :to="item.router">
-                    <h4 class="text-item">{{ $t(`menu.${item.title}`) }}</h4>
+                  <NuxtLink :to="category.url">
+                    <h4 class="text-item">{{ category.name[$i18n.locale] }}</h4>
                   </NuxtLink>
                 </div>
               </span>
@@ -242,7 +249,6 @@
 
 <script>
 import { mapState } from 'vuex'
-import menu from '~/configs/menu'
 import ButtonHamburger from '~/components/common/ButtonHamburger'
 import MultiLanguage from '~/components/partials/header/MultiLanguage'
 import { IMAGE, SCREEN_PATH, ICON } from '~/utils/constants'
@@ -257,7 +263,6 @@ export default {
   },
   data() {
     return {
-      menu,
       IMAGE,
       SCREEN_PATH,
       ICON,
@@ -267,15 +272,29 @@ export default {
       initialNavOffset: 0,
       positionTopMenu: 206,
       isShowSearchBar: false,
+      categoriesData: [],
     }
   },
-
+  async fetch() {
+    await this.$store.dispatch('category/category/get')
+  },
   computed: {
     ...mapState({
       currentPath: (state) => state.common.path.currentPath,
+      categories: (state) => state.category.category.categories,
     }),
   },
-
+  watch: {
+    categories: {
+      handler(data) {
+        if (data.length > 0) {
+          this.categoriesData = data
+        } else {
+          this.categoriesData = []
+        }
+      },
+    },
+  },
   mounted() {
     this.initialNavOffset = this.$refs.navbar.offsetTop
     window.addEventListener('scroll', this.onScroll)
