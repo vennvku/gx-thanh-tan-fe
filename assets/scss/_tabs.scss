@@ -1,0 +1,36 @@
+@import 'variables';
+
+.tabs {
+  .nav-tabs {
+    z-index: 1;
+    white-space: nowrap;
+    border-bottom-color: #a9eed4;
+
+    .nav-item {
+      .nav-link {
+        border: none;
+        padding: 10px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        color: $primary-text-color;
+        z-index: 2;
+        position: relative;
+
+        &:hover {
+          color: $green-color;
+        }
+
+        .line-bottom-tab {
+          width: 100%;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    margin-top: 15px;
+  }
+}

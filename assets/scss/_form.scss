@@ -122,8 +122,12 @@
       border: none;
       box-shadow: none;
       display: inline-block;
-      // padding: 6px 12px !important;
       float: right;
+
+      &.form-bordered {
+        border: 1px solid #a6baff;
+        border-bottom: none;
+      }
 
       @media screen and (max-width: 767px) {
         font-size: $default-mobile-font-size;
@@ -151,12 +155,8 @@
         @include form-label-transform(0.8);
         top: -25px;
 
-        @media screen and (max-width: 1300px) {
-          @include form-label-transform(0.7);
-        }
-
-        @media screen and (max-width: 768px) {
-          top: -20px;
+        &.form-bordered {
+          top: -30px;
         }
       }
 
@@ -184,6 +184,10 @@
             ~ .form-label {
               @include form-label-transform(0.8);
               top: -25px;
+
+              &.form-bordered {
+                top: -30px;
+              }
             }
           }
         }
@@ -283,6 +287,7 @@
     .form-input {
       .form-label {
         left: 0;
+        padding-left: 5px;
 
         @media screen and (max-width: 767px) {
           left: 0;
@@ -292,6 +297,12 @@
       .animated--border {
         left: 0;
         width: 100%;
+        background-color: #a6baff;
+
+        &.form-bordered {
+          width: calc(100% - 4px);
+          left: 2px;
+        }
 
         @media screen and (max-width: 767px) {
           left: 0;
@@ -309,6 +320,7 @@
     }
     .error {
       left: 0;
+      padding-left: 0;
       width: 100%;
 
       @media screen and (max-width: 767px) {
@@ -323,5 +335,13 @@
   .custom-control-label {
     cursor: pointer;
     line-height: 24px;
+  }
+}
+
+.custom-select {
+  &.select-form {
+    font-size: 16px;
+    height: 38px;
+    box-shadow: none;
   }
 }

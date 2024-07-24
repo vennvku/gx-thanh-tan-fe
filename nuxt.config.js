@@ -70,6 +70,7 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
+    'vue2-editor/nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

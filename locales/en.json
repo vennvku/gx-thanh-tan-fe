@@ -70,6 +70,7 @@
       "signIn": "Sign in",
       "dashboard": "Dashboard",
       "articleManagement": "Article Management",
+      "articleManagementCreate": "Create Article",
       "categoryManagement": "Category Management",
       "featuredArticleManagement": "Featured Article Management",
       "setting": "Setting",
@@ -107,14 +108,23 @@
     },
     "modal": {
       "delete": "Are you sure you want to remove the Article?"
-    }
+    },
+    "noteSlug": "The Slug will be used as part of the URL",
+    "articleText": "Article Text",
+    "status": "Status",
+    "category": "Category",
+    "featured": "Featured",
+    "featureYes": "Yes",
+    "featureNo": "No"
   },
   "table": {
     "total": "Total",
     "article": "Article"
   },
   "button": {
-    "new": "New"
+    "new": "New",
+    "saveAndClose": "Save & Close",
+    "close": "Close"
   },
   "select": {
     "action": "Action",
@@ -129,6 +139,12 @@
     "idAscending": "ID ascending"
   },
   "input": {
-    "search": "Type to search"
+    "search": "Type to search",
+    "title": "Title *",
+    "slug": "Slug *"
+  },
+  "tabs": {
+    "content": "Content",
+    "imagesAndLink": "Images And Link"
   }
 }

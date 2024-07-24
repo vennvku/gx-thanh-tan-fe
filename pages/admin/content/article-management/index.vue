@@ -1,7 +1,7 @@
 <template>
   <div class="management">
     <div class="top-management">
-      <button class="btn-news">
+      <button class="btn-news" @click="routeCreate()">
         <add-icon class="icon-news" />
         <span class="title-news">{{ $t('button.new') }}</span>
       </button>
@@ -57,11 +57,11 @@
           </div>
         </div>
         <div class="sort">
-          <b-form-select v-model="selectedSort" class="select-sort">
-            <b-form-select-option value="0">{{
+          <b-form-select v-model="selectedSort" class="select-sort select-form">
+            <b-form-select-option :value="0">{{
               $t('select.idDescending')
             }}</b-form-select-option>
-            <b-form-select-option value="1">{{
+            <b-form-select-option :value="1">{{
               $t('select.idAscending')
             }}</b-form-select-option>
           </b-form-select>
@@ -70,34 +70,38 @@
 
       <div class="filter-detail">
         <div class="item-filter-detail">
-          <b-form-select>
-            <b-form-select-option disabled
-              >-- Please select Featured --</b-form-select-option
-            >
+          <b-form-select
+            v-model="selectedFeature"
+            class="select-form"
+            :options="featureOptions"
+          >
           </b-form-select>
         </div>
 
         <div class="item-filter-detail">
-          <b-form-select>
-            <b-form-select-option disabled
-              >-- Please select Category --</b-form-select-option
-            >
+          <b-form-select
+            v-model="selectedCategory"
+            class="select-form"
+            :options="categoryOptions"
+          >
           </b-form-select>
         </div>
 
         <div class="item-filter-detail">
-          <b-form-select>
-            <b-form-select-option disabled
-              >-- Please select Publish --</b-form-select-option
-            >
+          <b-form-select
+            v-model="selectedPublish"
+            class="select-form"
+            :options="publishOptions"
+          >
           </b-form-select>
         </div>
 
         <div class="item-filter-detail">
-          <b-form-select>
-            <b-form-select-option disabled
-              >-- Please select Author --</b-form-select-option
-            >
+          <b-form-select
+            v-model="selectedAuthor"
+            class="select-form"
+            :options="authorOptions"
+          >
           </b-form-select>
         </div>
       </div>
@@ -112,7 +116,7 @@
       >
         <template slot="table-column" slot-scope="props">
           <span v-if="props.column.label === 'checkbox'">
-            <b-form-checkbox :unchecked-value="null" disabled></b-form-checkbox>
+            <b-form-checkbox disabled></b-form-checkbox>
           </span>
           <span v-else class="text-center">
             {{ $t('articleManagement.data.header.' + props.column.label) }}
@@ -127,7 +131,7 @@
             v-else-if="props.column.field === 'checkbox'"
             class="text-center"
           >
-            <b-form-checkbox :unchecked-value="null"></b-form-checkbox>
+            <b-form-checkbox> </b-form-checkbox>
           </div>
 
           <div
@@ -168,7 +172,7 @@
               {{ props.row.translations.vi.title }}
             </div>
             <div class="alias-article">
-              <span class="alias-article-name">Alias:</span>
+              <span class="alias-article-name">Slug:</span>
               {{ props.row.slug }}
             </div>
             <div class="category-article">
@@ -210,7 +214,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { ICON } from '~/utils/constants'
+import { ICON, SCREEN_PATH } from '~/utils/constants'
 
 export default {
   name: 'ArticleManagement',
@@ -234,23 +238,20 @@ export default {
       selectedSort: 0,
       isShowFilterDetail: false,
       actions: [
-        { value: 1, text: 'publish', color: '#399918', icon: 'PublishIcon' },
+        { text: 'publish', color: '#399918', icon: 'PublishIcon' },
         {
-          value: 1,
           text: 'unPublish',
           color: '#ccc',
           icon: 'UnPublishIcon',
         },
-        { value: 1, text: 'feature', color: '#FFC700', icon: 'FeatureIcon' },
+        { text: 'feature', color: '#FFC700', icon: 'FeatureIcon' },
         {
-          value: 1,
           text: 'unFeature',
           color: '#ccc',
           icon: 'UnFeatureIcon',
         },
-        { value: 1, text: 'trash', color: '#EE4E4E', icon: 'TrashIcon' },
+        { text: 'trash', color: '#EE4E4E', icon: 'TrashIcon' },
       ],
-
       columns: [
         {
           label: 'no',
@@ -291,6 +292,25 @@ export default {
           width: '50px',
         },
       ],
+
+      featureOptions: [
+        { value: null, text: '-- Please select Featured --', disabled: true },
+      ],
+      categoryOptions: [
+        { value: null, text: '-- Please select Category --', disabled: true },
+      ],
+      publishOptions: [
+        { value: null, text: '-- Please select Publish --', disabled: true },
+      ],
+      authorOptions: [
+        { value: null, text: '-- Please select Author --', disabled: true },
+      ],
+
+      selectedFeature: null,
+      selectedCategory: null,
+      selectedPublish: null,
+      selectedAuthor: null,
+
       perPage: 10,
       rows: null,
       currentPage: 1,
@@ -302,7 +322,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('title')} | ${this.$t('page.tagManagement')}`,
+      title: `${this.$t('title')} | ${this.$t('admin.page.articleManagement')}`,
     }
   },
   computed: {
@@ -361,6 +381,11 @@ export default {
     },
     hideFilterDetail() {
       this.isShowFilterDetail = false
+    },
+    routeCreate() {
+      return this.$router.push({
+        name: SCREEN_PATH.ADMIN.CONTENT.ARTICLE_MANAGEMENT.CREATE,
+      })
     },
   },
 }

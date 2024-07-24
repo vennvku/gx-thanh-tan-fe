@@ -173,8 +173,6 @@
         .select-sort {
           width: 200px;
           height: 38px;
-          font-size: 16px;
-          box-shadow: none;
         }
       }
     }
@@ -185,10 +183,6 @@
       gap: 20px;
 
       .item-filter-detail {
-        select {
-          box-shadow: none;
-          height: 38px;
-        }
       }
     }
   }

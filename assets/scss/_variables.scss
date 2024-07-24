@@ -81,6 +81,8 @@ $grey-color: #ddd;
 
 $border-color: #ccc;
 
+$green-color: #00d971;
+
 $primary-text-color: #28262c;
 $secondary-text-color: rgb(226 0 7);
 
@@ -103,3 +105,6 @@ $noto-serif: 'Noto Serif', 'Times New Roman', Times, Georgia, serif;
 $montserrat: 'Montserrat', sans-serif;
 
 $test-bg: linear-gradient(220.55deg, #dde4ff 0%, #8da2ee 100%);
+
+//transition
+$transition-btn-close: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);

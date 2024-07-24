@@ -10,6 +10,10 @@ export default [
     route: SCREEN_PATH.ADMIN.CONTENT.ARTICLE_MANAGEMENT.INDEX,
   },
   {
+    page: 'articleManagementCreate',
+    route: SCREEN_PATH.ADMIN.CONTENT.ARTICLE_MANAGEMENT.CREATE,
+  },
+  {
     page: 'categoryManagement',
     route: SCREEN_PATH.ADMIN.CONTENT.CATEGORY_MANAGEMENT.INDEX,
   },

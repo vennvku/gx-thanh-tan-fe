@@ -5,6 +5,8 @@
         <section-title-line :section-title="getSectionTitle" />
       </div>
       <div class="wrapper-nav-profile">
+        <multi-language />
+
         <b-dropdown right class="nav-profile">
           <template #button-content>
             <div class="avatar">
@@ -27,11 +29,13 @@
 
 <script>
 import SectionTitleLine from '~/components/admin/partials/SectionTitleLine'
+import MultiLanguage from '~/components/partials/header/MultiLanguage'
 import { sectionTitleLine, ICON, IMAGE } from '~/utils/constants'
 export default {
   name: 'NavbarAdmin',
   components: {
     SectionTitleLine,
+    MultiLanguage,
   },
   data() {
     return {

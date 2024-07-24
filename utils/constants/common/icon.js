@@ -37,6 +37,7 @@ import feature from '~/assets/icons/feature.svg?inline'
 import unFeature from '~/assets/icons/un_feature.svg?inline'
 import trash from '~/assets/icons/trash.svg?inline'
 import searchAdmin from '~/assets/icons/search_admin.svg?inline'
+import lineTab from '~/assets/icons/line_tab.svg'
 
 export const ICON = {
   accountCircle,
@@ -78,4 +79,5 @@ export const ICON = {
   unFeature,
   trash,
   searchAdmin,
+  lineTab,
 }
