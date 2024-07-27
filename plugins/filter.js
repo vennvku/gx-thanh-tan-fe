@@ -19,7 +19,13 @@ Vue.filter('formatNumber', (value, decimal = 0, getZero = true) => {
   else return null
 })
 
-Vue.filter('dayDisplay', (value, format = 'DD/MM/YYYY HH:mm:ss') => {
+Vue.filter('dayDisplay', (value, format = 'DD/MM/YYYY') => {
+  if (value) {
+    return DayJSClass.formatTime(value, format)
+  } else return ''
+})
+
+Vue.filter('dayTimeDisplay', (value, format = 'DD/MM/YYYY HH:mm:ss') => {
   if (value) {
     return DayJSClass.formatTime(value, format)
   } else return ''

@@ -30,7 +30,8 @@
     }
   },
   "success": {
-    "logout": "Bạn đã Đăng xuất thành công. Hẹn gặp lại!!!"
+    "logout": "Bạn đã Đăng xuất thành công. Hẹn gặp lại!!!",
+    "updatedCategory": "Danh mục đã được cập nhật thành công"
   },
   "title": "Giáo xứ Thanh Tân",
   "menu": {
@@ -80,7 +81,7 @@
       }
     },
     "modal": {
-      "delete": "Are you sure you want to remove the Article?"
+      "delete": "Bạn có chắc chắn muốn xóa Bài viết này?"
     },
     "noteSlug": "Slug sẽ được sử dụng làm đường dẫn của Bài viết",
     "articleText": "Nội dung Bài viết",
@@ -89,6 +90,22 @@
     "featured": "Nổi bật",
     "featureYes": "Nổi bật",
     "featureNo": "Không nổi bật"
+  },
+  "categoryManagement": {
+    "data": {
+      "header": {
+        "no": "No.",
+        "name": "Tên Danh mục",
+        "fixed_page": "Tĩnh hay Động",
+        "position": "Vị trí xuất hiện",
+        "status": "Trạng thái",
+        "created_at": "Ngày tạo",
+        "action": "Hành động"
+      }
+    },
+    "modal": {
+      "delete": "Bạn có chắc chắn muốn xóa Danh mục này?"
+    }
   },
   "table": {
     "total": "Tổng",
@@ -109,7 +126,9 @@
     "filterOptions": "Tuỳ chọn bộ lọc",
     "clear": "Xoá",
     "idDescending": "ID Giảm dần",
-    "idAscending": "ID Tăng dần"
+    "idAscending": "ID Tăng dần",
+    "fixed_page": "Menu Cố định",
+    "orther": "Menu Động"
   },
   "input": {
     "search": "Nhập từ khoá tìm kiếm",

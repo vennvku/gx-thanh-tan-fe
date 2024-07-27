@@ -80,6 +80,10 @@
       justify-content: end;
       padding: 15px 0px;
 
+      &.start-item {
+        justify-content: start;
+      }
+
       .search {
         display: flex;
 
@@ -188,6 +192,7 @@
   }
 
   .table-conent {
+    padding-bottom: 50px;
     .title-article {
       font-size: 16px;
       font-weight: 700;

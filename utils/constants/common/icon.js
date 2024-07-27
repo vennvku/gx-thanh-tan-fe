@@ -10,7 +10,7 @@ import skip from '~/assets/icons/skip.svg'
 import alert from '~/assets/icons/alert.svg'
 import arrowDropDown from '~/assets/icons/arrow_drop_down.svg'
 import visible from '~/assets/icons/visible.svg'
-import edit from '~/assets/icons/edit.svg'
+import edit from '~/assets/icons/edit.svg?inline'
 import remove from '~/assets/icons/remove.svg'
 import done from '~/assets/icons/done.svg'
 import home from '~/assets/icons/home.svg'
@@ -29,6 +29,7 @@ import rightArrowAdmin from '~/assets/icons/right_arrow_admin.svg?inline'
 import menu from '~/assets/icons/menu.svg'
 import exclamation from '~/assets/icons/exclamation.svg?inline'
 import arrowBottomAdmin from '~/assets/icons/arrow_bottom_admin.svg?inline'
+import arrowUpAdmin from '~/assets/icons/arrow_up_admin.svg?inline'
 import add from '~/assets/icons/add.svg?inline'
 import threeDotsLine from '~/assets/icons/three_dots_line.svg?inline'
 import publish from '~/assets/icons/publish.svg?inline'
@@ -38,6 +39,10 @@ import unFeature from '~/assets/icons/un_feature.svg?inline'
 import trash from '~/assets/icons/trash.svg?inline'
 import searchAdmin from '~/assets/icons/search_admin.svg?inline'
 import lineTab from '~/assets/icons/line_tab.svg'
+import categoryParent from '~/assets/icons/category_parent.svg?inline'
+import categoryChildren from '~/assets/icons/category_children.svg?inline'
+import moveUp from '~/assets/icons/move_up.svg?inline'
+import moveBottom from '~/assets/icons/move_bottom.svg?inline'
 
 export const ICON = {
   accountCircle,
@@ -71,6 +76,7 @@ export const ICON = {
   menu,
   exclamation,
   arrowBottomAdmin,
+  arrowUpAdmin,
   add,
   threeDotsLine,
   publish,
@@ -80,4 +86,8 @@ export const ICON = {
   trash,
   searchAdmin,
   lineTab,
+  categoryParent,
+  categoryChildren,
+  moveUp,
+  moveBottom,
 }

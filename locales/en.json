@@ -30,7 +30,8 @@
     }
   },
   "success": {
-    "logout": "You were successfully logged out. See you again"
+    "logout": "You were successfully logged out. See you again",
+    "updatedCategory": "Category has been successfully updated"
   },
   "title": "Thanh Tan Parish",
   "menu": {
@@ -90,6 +91,22 @@
     "featureYes": "Yes",
     "featureNo": "No"
   },
+  "categoryManagement": {
+    "data": {
+      "header": {
+        "no": "No.",
+        "name": "name",
+        "fixed_page": "Fixed Page",
+        "position": "position",
+        "status": "status",
+        "created_at": "Date Created",
+        "action": "action"
+      }
+    },
+    "modal": {
+      "delete": "Are you sure you want to remove the Category?"
+    }
+  },
   "table": {
     "total": "Total",
     "article": "Article"
@@ -109,7 +126,9 @@
     "filterOptions": "Filter Options",
     "clear": "clear",
     "idDescending": "ID descending",
-    "idAscending": "ID ascending"
+    "idAscending": "ID ascending",
+    "fixed_page": "Fixed Page",
+    "orther": "Orther"
   },
   "input": {
     "search": "Type to search",
