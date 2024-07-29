@@ -23,7 +23,8 @@
       "otherError": "An error occurred"
     },
     "serverError": {
-      "loginFailed": "Địa chỉ Email hoặc Mật khẩu không chính xác. Vui lòng nhập lại!!!"
+      "loginFailed": "Địa chỉ Email hoặc Mật khẩu không chính xác. Vui lòng nhập lại!!!",
+      "thisUrlIsAlreadyInUseByAnotherCategory": "Đường dẫn Danh mục đã được sửa dụng bởi Danh mục khác"
     },
     "data": {
       "empty": "Không có dữ liệu để hiển thị."
@@ -31,7 +32,8 @@
   },
   "success": {
     "logout": "Bạn đã Đăng xuất thành công. Hẹn gặp lại!!!",
-    "updatedCategory": "Danh mục đã được cập nhật thành công"
+    "updatedCategory": "Danh mục đã được cập nhật thành công",
+    "createdCategory": "Danh mục đã được tạo mới thành công"
   },
   "title": "Giáo xứ Thanh Tân",
   "menu": {
@@ -46,6 +48,7 @@
       "articleManagement": "Quản lý Bài viết",
       "articleManagementCreate": "Tạo mới Bài viết",
       "categoryManagement": "Quản lý Danh mục",
+      "categoryManagementCreate": "Tạo mới Danh mục",
       "featuredArticleManagement": "Quản lý Bài viết Nổi bật",
       "setting": "Cài đặt",
       "help": "Trợ giúp"
@@ -105,6 +108,11 @@
     },
     "modal": {
       "delete": "Bạn có chắc chắn muốn xóa Danh mục này?"
+    },
+    "create": {
+      "fixedMenu": "Menu Cố định hay Menu Động: ",
+      "parentChildMenu": "Menu cha hay Menu con: ",
+      "choosenParentMenu": "Chọn Menu Cha cho Menu (*):"
     }
   },
   "table": {
@@ -128,12 +136,18 @@
     "idDescending": "ID Giảm dần",
     "idAscending": "ID Tăng dần",
     "fixed_page": "Menu Cố định",
-    "orther": "Menu Động"
+    "orther": "Menu Động",
+    "parentMenu": "Menu Cha",
+    "childrenMenu": "Menu Con",
+    "selectParentMenu": "Vui lòng chọn Danh mục Cha"
   },
   "input": {
     "search": "Nhập từ khoá tìm kiếm",
-    "title": "Tiêu đề bài viết *",
-    "slug": "Slug bài viết *"
+    "title": "Tiêu đề bài viết (*)",
+    "slug": "Slug bài viết (*)",
+    "nameCategoryVi": "Tên Tiếng Việt của Danh mục (*)",
+    "nameCategoryEn": "Tên Tiếng Anh của Danh mục (*)",
+    "url": "Đường dẫn của Danh mục (*)"
   },
   "tabs": {
     "content": "Nội dung Bài viết",

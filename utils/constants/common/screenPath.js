@@ -16,6 +16,7 @@ export const SCREEN_PATH = {
       },
       CATEGORY_MANAGEMENT: {
         INDEX: 'admin-content-category-management',
+        CREATE: 'admin-content-category-management-create',
         EDIT: 'admin-content-category-management-edit',
       },
       FEATURED_ARTICLE_MANAGEMENT: {

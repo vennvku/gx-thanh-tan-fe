@@ -18,6 +18,10 @@ export default [
     route: SCREEN_PATH.ADMIN.CONTENT.CATEGORY_MANAGEMENT.INDEX,
   },
   {
+    page: 'categoryManagementCreate',
+    route: SCREEN_PATH.ADMIN.CONTENT.CATEGORY_MANAGEMENT.CREATE,
+  },
+  {
     page: 'featuredArticleManagement',
     route: SCREEN_PATH.ADMIN.CONTENT.FEATURED_ARTICLE_MANAGEMENT.INDEX,
   },

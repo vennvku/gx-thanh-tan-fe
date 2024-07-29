@@ -20,4 +20,8 @@ export default ($axios) => ({
       payload
     )
   },
+
+  create(payload) {
+    return $axios.post(`${env.apiUrl}/${resource}`, payload)
+  },
 })

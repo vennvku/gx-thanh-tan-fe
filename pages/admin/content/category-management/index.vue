@@ -342,7 +342,7 @@ export default {
     },
     routeCreate() {
       return this.$router.push({
-        name: SCREEN_PATH.ADMIN.CONTENT.ARTICLE_MANAGEMENT.CREATE,
+        name: SCREEN_PATH.ADMIN.CONTENT.CATEGORY_MANAGEMENT.CREATE,
       })
     },
   },

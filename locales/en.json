@@ -23,7 +23,8 @@
       "otherError": "An error occurred"
     },
     "serverError": {
-      "loginFailed": "Email address or password is incorrect. Input correctly"
+      "loginFailed": "Email address or password is incorrect. Input correctly",
+      "thisUrlIsAlreadyInUseByAnotherCategory": "This Url Is Already In Use By Another Category"
     },
     "data": {
       "empty": "No data to show."
@@ -31,7 +32,8 @@
   },
   "success": {
     "logout": "You were successfully logged out. See you again",
-    "updatedCategory": "Category has been successfully updated"
+    "updatedCategory": "Category has been successfully updated",
+    "createdCategory": "Category has been successfully created"
   },
   "title": "Thanh Tan Parish",
   "menu": {
@@ -46,6 +48,7 @@
       "articleManagement": "Article Management",
       "articleManagementCreate": "Create Article",
       "categoryManagement": "Category Management",
+      "categoryManagementCreate": "Create Category",
       "featuredArticleManagement": "Featured Article Management",
       "setting": "Setting",
       "help": "Help"
@@ -105,6 +108,11 @@
     },
     "modal": {
       "delete": "Are you sure you want to remove the Category?"
+    },
+    "create": {
+      "fixedMenu": "Static Menu or Dynamic Menu: ",
+      "parentChildMenu": "Parent Menu or Child Menu: ",
+      "choosenParentMenu": "Select Parent Menu for Menu: (*):"
     }
   },
   "table": {
@@ -128,12 +136,18 @@
     "idDescending": "ID descending",
     "idAscending": "ID ascending",
     "fixed_page": "Fixed Page",
-    "orther": "Orther"
+    "orther": "Orther",
+    "parentMenu": "Parent Menu",
+    "childrenMenu": "Children Menu",
+    "selectParentMenu": "Please select Parent Menu"
   },
   "input": {
     "search": "Type to search",
-    "title": "Title *",
-    "slug": "Slug *"
+    "title": "Title (*)",
+    "slug": "Slug (*)",
+    "nameCategoryVi": "Name Category Vietnamese (*)",
+    "nameCategoryEn": "Name Category English (*)",
+    "url": "Url (*)"
   },
   "tabs": {
     "content": "Content",

@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import { successCode, TIME_LOADING } from '~/utils/constants'
-import { successToast } from '~/utils/helpers/toast'
+import { successCode, errorCode, regex, TIME_LOADING } from '~/utils/constants'
+import { successToast, errorToast } from '~/utils/helpers/toast'
 
 export const state = () => ({
   isCallApi: false,
@@ -98,6 +98,29 @@ export const actions = {
         successToast('updatedCategory', this.app.i18n)
       }
     } catch (error) {
+    } finally {
+      commit('SET_IS_CALL_API', false)
+    }
+  },
+
+  async create({ commit }, payload) {
+    commit('SET_IS_CALL_API', true)
+    try {
+      const { status } = await this.$repositories.categoryAdmin.create(payload)
+
+      if (+status === successCode.CREATED) {
+        await this.$router.go(-1)
+        successToast('createdCategory', this.app.i18n)
+      }
+    } catch (error) {
+      const { status } = error.response
+
+      if (+status === errorCode.UNPROCESSABLE_ENTITY) {
+        const { data } = error.response
+
+        if (data.error)
+          errorToast(regex.snakeToCamel(String(data.error)), this.app.i18n)
+      }
     } finally {
       commit('SET_IS_CALL_API', false)
     }
