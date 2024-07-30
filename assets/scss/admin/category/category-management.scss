@@ -31,14 +31,15 @@ $split-grid-column-category: 37% 15% 13% 10% 10% 15%;
     }
   }
 
+  .empty-data {
+    border: 1px solid $border-color;
+    padding: 10px;
+  }
+
   .tbody-category {
     border: 1px solid $border-color;
     border-top-color: $green-color;
     padding: 0px 30px 20px 30px;
-
-    .empty-data {
-      padding-top: 20px;
-    }
 
     .wrapper-row-parent {
       position: relative;

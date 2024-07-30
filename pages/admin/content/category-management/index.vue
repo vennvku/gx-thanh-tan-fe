@@ -46,12 +46,7 @@
             {{ $t('categoryManagement.data.header.action') }}
           </div>
         </div>
-        <div class="tbody-category">
-          <div v-if="!isCallApi" class="empty-data text-center">
-            <i class="fa-regular fa-face-sad-tear"></i>
-            {{ $t('error.data.empty') }}
-          </div>
-
+        <div v-if="categoriesData.length" class="tbody-category">
           <div
             v-for="category in categoriesData"
             :key="category.id"
@@ -187,13 +182,20 @@
                     <span class="text-btn-action">Edit</span></b-button
                   >
 
-                  <b-button class="btn-action btn-trash">
+                  <b-button
+                    class="btn-action btn-trash"
+                    @click.stop="openModalDelete(child.id)"
+                  >
                     <trash-icon />
                   </b-button>
                 </div>
               </div>
             </b-collapse>
           </div>
+        </div>
+        <div v-else class="empty-data text-center">
+          <i class="fa-regular fa-face-sad-tear"></i>
+          {{ $t('error.data.empty') }}
         </div>
       </div>
     </div>

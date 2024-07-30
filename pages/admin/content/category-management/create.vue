@@ -40,7 +40,6 @@
                     class="form-bordered"
                     :class="{ 'is-empty': regex.isEmpty(nameCategoryVi) }"
                     placeholder=""
-                    @keydown.space.prevent
                   />
                   <div class="clearfix"></div>
                   <label class="form-label form-bordered" for="nameCategoryVi">
@@ -73,7 +72,6 @@
                     class="form-bordered"
                     :class="{ 'is-empty': regex.isEmpty(nameCategoryEn) }"
                     placeholder=""
-                    @keydown.space.prevent
                   />
                   <div class="clearfix"></div>
                   <label class="form-label form-bordered" for="nameCategoryEn">

@@ -146,9 +146,7 @@ export const actions = {
   async delete({ commit, dispatch }, id) {
     commit('SET_IS_CALL_API', true)
     try {
-      const { status, data } = await this.$repositories.categoryAdmin.delete(id)
-
-      console.log(data)
+      const { status } = await this.$repositories.categoryAdmin.delete(id)
 
       if (+status === successCode.OK) {
         dispatch('admin/category/category/getCategorie', {}, { root: true })
