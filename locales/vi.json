@@ -33,7 +33,8 @@
   "success": {
     "logout": "Bạn đã Đăng xuất thành công. Hẹn gặp lại!!!",
     "updatedCategory": "Danh mục đã được cập nhật thành công",
-    "createdCategory": "Danh mục đã được tạo mới thành công"
+    "createdCategory": "Danh mục đã được tạo mới thành công",
+    "deletedCategory": "Danh mục đã được xoá thành công"
   },
   "title": "Giáo xứ Thanh Tân",
   "menu": {
@@ -69,7 +70,8 @@
       "help": {
         "heading": "Help"
       }
-    }
+    },
+    "cofirm": "Bạn có chắc không?"
   },
   "articleManagement": {
     "data": {
@@ -122,7 +124,9 @@
   "button": {
     "new": "Tạo mới",
     "saveAndClose": "Lưu & Thoát",
-    "close": "Thoát"
+    "close": "Thoát",
+    "ok": "Có, Hãy xoá",
+    "cancel": "Không, Huỷ bỏ"
   },
   "select": {
     "action": "Thao tác",

@@ -47,6 +47,11 @@
           </div>
         </div>
         <div class="tbody-category">
+          <div v-if="!isCallApi" class="empty-data text-center">
+            <i class="fa-regular fa-face-sad-tear"></i>
+            {{ $t('error.data.empty') }}
+          </div>
+
           <div
             v-for="category in categoriesData"
             :key="category.id"
@@ -117,6 +122,7 @@
                 <b-button
                   v-if="!category.has_children"
                   class="btn-action btn-trash"
+                  @click.stop="openModalDelete(category.id)"
                 >
                   <trash-icon />
                 </b-button>
@@ -191,12 +197,15 @@
         </div>
       </div>
     </div>
+
+    <category-delete-confirmation :id="idDeleted" />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import { ICON, SCREEN_PATH } from '~/utils/constants'
+import CategoryDeleteConfirmation from '~/components/admin/content/categoryManagement/DeleteConfirmation'
 
 export default {
   name: 'CategoryManagement',
@@ -213,6 +222,7 @@ export default {
     UnPublishIcon: ICON.unPublish,
     moveUpIcon: ICON.moveUp,
     moveBottomIcon: ICON.moveBottom,
+    CategoryDeleteConfirmation,
   },
   layout: 'authenticated',
   middleware: 'auth/auth',
@@ -224,6 +234,7 @@ export default {
       categoriesData: [],
       collapseCategoryStates: {},
       isFixedPageOptions: [],
+      idDeleted: null,
     }
   },
   async fetch() {
@@ -344,6 +355,10 @@ export default {
       return this.$router.push({
         name: SCREEN_PATH.ADMIN.CONTENT.CATEGORY_MANAGEMENT.CREATE,
       })
+    },
+    openModalDelete(id) {
+      this.idDeleted = id
+      this.$bvModal.show('category-delete-confirmation')
     },
   },
 }

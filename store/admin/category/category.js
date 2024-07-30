@@ -39,6 +39,23 @@ export const actions = {
     }
   },
 
+  async getCategorie({ commit }, params = null) {
+    commit('SET_IS_CALL_API', true)
+
+    try {
+      const { status, data } =
+        await this.$repositories.categoryAdmin.getCategories(params)
+
+      if (+status === successCode.OK && data) {
+        commit('GET_CATEGORIES', data)
+      }
+    } catch (error) {
+      commit('GET_CATEGORIES', [])
+    } finally {
+      commit('SET_IS_CALL_API', false)
+    }
+  },
+
   async updateCategoryManagement({ commit }, { id, payload }) {
     commit('SET_IS_CALL_API', true)
     const startTime = performance.now()
@@ -121,6 +138,24 @@ export const actions = {
         if (data.error)
           errorToast(regex.snakeToCamel(String(data.error)), this.app.i18n)
       }
+    } finally {
+      commit('SET_IS_CALL_API', false)
+    }
+  },
+
+  async delete({ commit, dispatch }, id) {
+    commit('SET_IS_CALL_API', true)
+    try {
+      const { status, data } = await this.$repositories.categoryAdmin.delete(id)
+
+      console.log(data)
+
+      if (+status === successCode.OK) {
+        dispatch('admin/category/category/getCategorie', {}, { root: true })
+        Vue.prototype.$bus.$emit('delete-category-done')
+        successToast('deletedCategory', this.app.i18n)
+      }
+    } catch (error) {
     } finally {
       commit('SET_IS_CALL_API', false)
     }
