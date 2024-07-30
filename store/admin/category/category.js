@@ -120,6 +120,21 @@ export const actions = {
     }
   },
 
+  async showDetail({ commit }, id) {
+    commit('SET_IS_CALL_API', true)
+    try {
+      const { status, data } =
+        await this.$repositories.categoryAdmin.showDetail(id)
+
+      if (+status === successCode.OK && data) {
+        commit('GET_CATEGORY', data)
+      }
+    } catch (error) {
+    } finally {
+      commit('SET_IS_CALL_API', false)
+    }
+  },
+
   async create({ commit }, payload) {
     commit('SET_IS_CALL_API', true)
     try {
@@ -138,6 +153,25 @@ export const actions = {
         if (data.error)
           errorToast(regex.snakeToCamel(String(data.error)), this.app.i18n)
       }
+    } finally {
+      commit('SET_IS_CALL_API', false)
+    }
+  },
+
+  async update({ commit }, { id, payload }) {
+    commit('SET_IS_CALL_API', true)
+
+    try {
+      const { status, data } = await this.$repositories.categoryAdmin.update(
+        id,
+        payload
+      )
+
+      if (+status === successCode.OK && data) {
+        await this.$router.go(-1)
+        successToast('updatedCategory', this.app.i18n)
+      }
+    } catch (error) {
     } finally {
       commit('SET_IS_CALL_API', false)
     }

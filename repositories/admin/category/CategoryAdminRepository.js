@@ -17,6 +17,9 @@ export default ($axios) => ({
       payload
     )
   },
+  showDetail(id) {
+    return $axios.get(`${env.apiUrl}/${resource}/${id}`)
+  },
   create(payload) {
     return $axios.post(`${env.apiUrl}/${resource}`, payload)
   },

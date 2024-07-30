@@ -38,7 +38,10 @@
                     autocomplete="off"
                     :state="getValidationState(validationContext)"
                     class="form-bordered"
-                    :class="{ 'is-empty': regex.isEmpty(nameCategoryVi) }"
+                    :class="{
+                      'is-empty': regex.isEmpty(nameCategoryVi),
+                      isset: nameCategoryVi,
+                    }"
                     placeholder=""
                   />
                   <div class="clearfix"></div>
@@ -70,7 +73,10 @@
                     autocomplete="off"
                     :state="getValidationState(validationContext)"
                     class="form-bordered"
-                    :class="{ 'is-empty': regex.isEmpty(nameCategoryEn) }"
+                    :class="{
+                      'is-empty': regex.isEmpty(nameCategoryEn),
+                      isset: nameCategoryEn,
+                    }"
                     placeholder=""
                   />
                   <div class="clearfix"></div>
@@ -102,7 +108,7 @@
                     autocomplete="off"
                     :state="getValidationState(validationContext)"
                     class="form-bordered"
-                    :class="{ 'is-empty': regex.isEmpty(url) }"
+                    :class="{ 'is-empty': regex.isEmpty(url), isset: url }"
                     placeholder=""
                     @keydown.space.prevent
                   />
@@ -136,7 +142,10 @@
               </div>
             </div>
 
-            <div class="option-create-category option-type-menu">
+            <div
+              v-if="showTypeMenu"
+              class="option-create-category option-type-menu"
+            >
               <div class="title-option-create-category">
                 {{ $t('categoryManagement.create.parentChildMenu') }}
               </div>
@@ -198,7 +207,7 @@ import { mapState } from 'vuex'
 import { ICON, regex } from '~/utils/constants'
 
 export default {
-  name: 'CategoryManagementCreate',
+  name: 'CategoryManagementEdit',
   components: {
     saveIcon: ICON.save,
   },
@@ -217,29 +226,51 @@ export default {
       typeMenuOptions: [],
       selectedParentMenu: null,
       categoriesData: [],
+
+      showTypeMenu: true,
     }
   },
   async fetch() {
+    await this.$store.dispatch(
+      'admin/category/category/showDetail',
+      Number(this.$route.query.id)
+    )
     await this.$store.dispatch('admin/category/category/getList')
   },
   head() {
     return {
       title: `${this.$t('title')} | ${this.$t(
-        'admin.page.categoryManagementCreate'
+        'admin.page.categoryManagementEdit'
       )}`,
     }
   },
   computed: {
     ...mapState({
       isCallApi: (state) => state.admin.category.category.isCallApi,
+      category: (state) => state.admin.category.category.category,
       categories: (state) => state.admin.category.category.categories,
     }),
   },
   watch: {
+    category: {
+      handler(data) {
+        if (data) {
+          this.nameCategoryVi = data.name.vi
+          this.nameCategoryEn = data.name.en
+          this.url = data.url
+          this.selectedFixedPage = data.is_fixed_page
+          this.showTypeMenu = !data.has_children
+          this.selectedParentMenu = data.parent_id
+          this.selectedTypeMenu = !data.is_parent
+        }
+      },
+    },
     categories: {
       handler(data) {
         if (data.length > 0) {
-          this.categoriesData = data
+          this.categoriesData = data.filter(
+            (category) => category.id !== parseInt(this.$route.query.id)
+          )
         } else {
           this.categoriesData = []
         }
@@ -249,7 +280,9 @@ export default {
       this.setCategoryOptions()
     },
     selectedTypeMenu: function () {
-      this.selectedParentMenu = null
+      if (this.selectedTypeMenu === false) {
+        this.selectedParentMenu = null
+      }
     },
   },
   mounted() {
@@ -280,7 +313,7 @@ export default {
     previousPage() {
       this.$router.go(-1)
     },
-    getDataToCreate() {
+    getDataToUpdate() {
       return {
         nameVi: this.nameCategoryVi,
         nameEn: this.nameCategoryEn,
@@ -290,8 +323,12 @@ export default {
       }
     },
     onSubmit() {
-      const payload = this.getDataToCreate()
-      this.$store.dispatch('admin/category/category/create', payload)
+      const payload = this.getDataToUpdate()
+
+      this.$store.dispatch('admin/category/category/update', {
+        id: Number(this.$route.query.id),
+        payload,
+      })
     },
   },
 }

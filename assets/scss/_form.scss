@@ -137,7 +137,7 @@
       &.isset {
         ~ .form-label {
           @include form-label-transform(0.8);
-          top: -25px;
+          top: -30px;
 
           @media screen and (max-width: 1300px) {
             @include form-label-transform(0.7);
@@ -284,6 +284,12 @@
   }
 
   &.form-no-icon {
+    padding-top: 10px;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
     .form-input {
       .form-label {
         left: 0;

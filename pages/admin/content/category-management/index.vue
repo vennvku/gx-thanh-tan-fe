@@ -109,7 +109,10 @@
                 {{ category.created_at | dayDisplay }}
               </div>
               <div class="item-row-parent item-content-left">
-                <b-button class="btn-action btn-edit">
+                <b-button
+                  class="btn-action btn-edit"
+                  @click.stop="routeEdit(category.id)"
+                >
                   <edit-icon />
                   <span class="text-btn-action">Edit</span></b-button
                 >
@@ -177,7 +180,10 @@
                   {{ child.created_at | dayDisplay }}
                 </div>
                 <div class="item-row-children">
-                  <b-button class="btn-action btn-edit">
+                  <b-button
+                    class="btn-action btn-edit"
+                    @click.stop="routeEdit(child.id)"
+                  >
                     <edit-icon />
                     <span class="text-btn-action">Edit</span></b-button
                   >
@@ -356,6 +362,12 @@ export default {
     routeCreate() {
       return this.$router.push({
         name: SCREEN_PATH.ADMIN.CONTENT.CATEGORY_MANAGEMENT.CREATE,
+      })
+    },
+    routeEdit(id) {
+      this.$router.push({
+        name: SCREEN_PATH.ADMIN.CONTENT.CATEGORY_MANAGEMENT.EDIT,
+        query: { id },
       })
     },
     openModalDelete(id) {

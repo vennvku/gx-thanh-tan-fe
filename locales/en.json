@@ -50,6 +50,7 @@
       "articleManagementCreate": "Create Article",
       "categoryManagement": "Category Management",
       "categoryManagementCreate": "Create Category",
+      "categoryManagementEdit": "Update Category",
       "featuredArticleManagement": "Featured Article Management",
       "setting": "Setting",
       "help": "Help"
