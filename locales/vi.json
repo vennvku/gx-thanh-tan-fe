@@ -90,12 +90,15 @@
       "delete": "Bạn có chắc chắn muốn xóa Bài viết này?"
     },
     "noteSlug": "Slug sẽ được sử dụng làm đường dẫn của Bài viết",
-    "articleText": "Nội dung Bài viết",
+    "articleTextVi": "Nội dung Bài viết - Tiếng Việt",
+    "articleTextEn": "Nội dung Bài viết - Tiếng Anh",
     "status": "Trạng thái của Bài viết",
     "category": "Danh mục",
     "featured": "Nổi bật",
     "featureYes": "Nổi bật",
-    "featureNo": "Không nổi bật"
+    "featureNo": "Không nổi bật",
+    "descriptionTextVi": "Mô tả cho Bài viết",
+    "descriptionTextEn": "Mô tả cho Bài viết"
   },
   "categoryManagement": {
     "data": {
@@ -144,18 +147,23 @@
     "orther": "Menu Động",
     "parentMenu": "Menu Cha",
     "childrenMenu": "Menu Con",
-    "selectParentMenu": "Vui lòng chọn Danh mục Cha"
+    "selectParentMenu": "Vui lòng chọn Danh mục Cha",
+    "selectCategory": "Chưa có Danh mục"
   },
   "input": {
     "search": "Nhập từ khoá tìm kiếm",
-    "title": "Tiêu đề bài viết (*)",
+    "titleVi": "Tiêu đề Bài viết - Tiếng Việt (*)",
+    "titleEn": "Tiêu đề Bài viết - Tiếng Anh",
     "slug": "Slug bài viết (*)",
     "nameCategoryVi": "Tên Tiếng Việt của Danh mục (*)",
     "nameCategoryEn": "Tên Tiếng Anh của Danh mục (*)",
-    "url": "Đường dẫn của Danh mục (*)"
+    "url": "Đường dẫn của Danh mục (*)",
+    "descriptionVi": "Nhập mô tả cho Bài viết",
+    "descriptionEn": "Nhập mô tả cho Bài viết"
   },
   "tabs": {
-    "content": "Nội dung Bài viết",
+    "contentVi": "Nội dung Bài viết - Tiếng Việt",
+    "contentEn": "Nội dung Bài viết - Tiếng Anh",
     "imagesAndLink": "Hình ảnh và Liên kết"
   }
 }

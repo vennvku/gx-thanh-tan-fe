@@ -90,12 +90,15 @@
       "delete": "Are you sure you want to remove the Article?"
     },
     "noteSlug": "The Slug will be used as part of the URL",
-    "articleText": "Article Text",
+    "articleTextVi": "Article Text Vietnamese",
+    "articleTextEn": "Article Text English",
     "status": "Status",
     "category": "Category",
     "featured": "Featured",
     "featureYes": "Yes",
-    "featureNo": "No"
+    "featureNo": "No",
+    "descriptionTextVi": "Description Article",
+    "descriptionTextEn": "Description Article"
   },
   "categoryManagement": {
     "data": {
@@ -144,18 +147,23 @@
     "orther": "Orther",
     "parentMenu": "Parent Menu",
     "childrenMenu": "Children Menu",
-    "selectParentMenu": "Please select Parent Menu"
+    "selectParentMenu": "Please select Parent Menu",
+    "selectCategory": "Uncategorised"
   },
   "input": {
     "search": "Type to search",
-    "title": "Title (*)",
+    "titleVi": "Title Vietnamese (*)",
+    "titleEn": "Title English",
     "slug": "Slug (*)",
     "nameCategoryVi": "Name Category Vietnamese (*)",
     "nameCategoryEn": "Name Category English (*)",
-    "url": "Url (*)"
+    "url": "Url (*)",
+    "descriptionVi": "Input description",
+    "descriptionEn": "Input description"
   },
   "tabs": {
-    "content": "Content",
+    "contentVi": "Content Vietnamese",
+    "contentEn": "Content English",
     "imagesAndLink": "Images And Link"
   }
 }

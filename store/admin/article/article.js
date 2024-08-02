@@ -41,6 +41,25 @@ export const actions = {
     }
   },
 
+  async create({ commit }, payload) {
+    commit('SET_IS_CALL_API', true)
+
+    try {
+      const { status, data } = await this.$repositories.articleAdmin.create(
+        payload
+      )
+
+      console.log(data)
+
+      if (+status === successCode.CREATED) {
+        await this.$router.go(-1)
+      }
+    } catch (error) {
+    } finally {
+      commit('SET_IS_CALL_API', false)
+    }
+  },
+
   //   async getTags({ commit }, params = null) {
   //     commit('SET_IS_CALL_API', true)
 
