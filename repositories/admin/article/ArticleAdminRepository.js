@@ -8,4 +8,16 @@ export default ($axios) => ({
   create(payload) {
     return $axios.post(`${env.apiUrl}/${resource}`, payload)
   },
+  updateArticleManagement(id, payload) {
+    return $axios.post(
+      `${env.apiUrl}/${resource}/update-article-management/${id}`,
+      payload
+    )
+  },
+  updateArticlesAction(payload) {
+    return $axios.post(
+      `${env.apiUrl}/${resource}/update-articles-action`,
+      payload
+    )
+  },
 })

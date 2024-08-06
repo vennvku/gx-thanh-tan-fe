@@ -44,6 +44,7 @@ import categoryChildren from '~/assets/icons/category_children.svg?inline'
 import moveUp from '~/assets/icons/move_up.svg?inline'
 import moveBottom from '~/assets/icons/move_bottom.svg?inline'
 import save from '~/assets/icons/save.svg?inline'
+import activity from '~/assets/icons/activity.svg?inline'
 
 export const ICON = {
   accountCircle,
@@ -92,4 +93,5 @@ export const ICON = {
   moveUp,
   moveBottom,
   save,
+  activity,
 }

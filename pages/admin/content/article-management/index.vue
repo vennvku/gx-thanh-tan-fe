@@ -6,7 +6,7 @@
         <span class="title-news">{{ $t('button.new') }}</span>
       </button>
 
-      <b-dropdown class="dropdown-action">
+      <b-dropdown class="dropdown-action" :disabled="!isAnyCheckboxSelected">
         <template #button-content>
           <div class="wrapper-content-action">
             <three-dots-line-icon class="icon-content-action" />
@@ -15,7 +15,11 @@
           </div>
         </template>
 
-        <b-dropdown-item-button v-for="(action, key) in actions" :key="key">
+        <b-dropdown-item-button
+          v-for="(action, key) in ACTIONS_ARTICLE"
+          :key="key"
+          @click="handleActionClick(action)"
+        >
           <div class="wrapper-item-action">
             <component
               :is="action.icon"
@@ -131,7 +135,8 @@
             v-else-if="props.column.field === 'checkbox'"
             class="text-center"
           >
-            <b-form-checkbox> </b-form-checkbox>
+            <b-form-checkbox v-model="selectedArticles" :value="props.row.id">
+            </b-form-checkbox>
           </div>
 
           <div
@@ -142,13 +147,15 @@
               v-if="props.row.is_featured === true"
               class="feature-icon-admin icon-table-admin"
             >
-              <feature-icon />
+              <feature-icon @click="toggleFeaturedArticle(props.row.id, 0)" />
             </div>
             <div
               v-if="props.row.is_featured === false"
               class="un-feature-icon-admin icon-table-admin"
             >
-              <un-feature-icon />
+              <un-feature-icon
+                @click="toggleFeaturedArticle(props.row.id, 1)"
+              />
             </div>
           </div>
 
@@ -157,13 +164,13 @@
               v-if="props.row.is_show === true"
               class="publish-icon-admin icon-table-admin"
             >
-              <publish-icon />
+              <publish-icon @click="toggleStatusArticle(props.row.id, 0)" />
             </div>
             <div
               v-if="props.row.is_show === false"
               class="un-publish-icon-admin icon-table-admin"
             >
-              <un-publish-icon />
+              <un-publish-icon @click="toggleStatusArticle(props.row.id, 1)" />
             </div>
           </div>
 
@@ -181,8 +188,19 @@
             </div>
           </div>
 
-          <div v-else-if="props.column.field === 'created_at'">
-            {{ props.row.created_at | dayDisplay }}
+          <div v-else-if="props.column.field === 'author'" class="text-center">
+            {{ props.row.author.name }}
+          </div>
+
+          <div
+            v-else-if="props.column.field === 'created_at'"
+            class="text-center"
+          >
+            {{ props.row.created_at | dayTimeDisplay }}
+          </div>
+
+          <div v-else-if="props.column.field === 'id'" class="text-center">
+            {{ props.row.id }}
           </div>
         </template>
         <div v-if="!isCallApi" slot="emptystate" class="text-center">
@@ -209,12 +227,17 @@
         </div>
       </div>
     </div>
+    <action-confirmation
+      :id-action="idActionConfirm"
+      :list-id-articles="selectedArticles"
+    />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import { ICON, SCREEN_PATH } from '~/utils/constants'
+import { ICON, SCREEN_PATH, ACTIONS_ARTICLE } from '~/utils/constants'
+import ActionConfirmation from '~/components/admin/content/articleManagement/ActionConfirmation'
 
 export default {
   name: 'ArticleManagement',
@@ -228,30 +251,19 @@ export default {
     UnFeatureIcon: ICON.unFeature,
     TrashIcon: ICON.trash,
     searchAdminIcon: ICON.searchAdmin,
+    ActionConfirmation,
   },
   layout: 'authenticated',
   middleware: 'auth/auth',
   data() {
     return {
       ICON,
+      ACTIONS_ARTICLE,
       keywords: null,
       selectedSort: 0,
       isShowFilterDetail: false,
-      actions: [
-        { text: 'publish', color: '#399918', icon: 'PublishIcon' },
-        {
-          text: 'unPublish',
-          color: '#ccc',
-          icon: 'UnPublishIcon',
-        },
-        { text: 'feature', color: '#FFC700', icon: 'FeatureIcon' },
-        {
-          text: 'unFeature',
-          color: '#ccc',
-          icon: 'UnFeatureIcon',
-        },
-        { text: 'trash', color: '#EE4E4E', icon: 'TrashIcon' },
-      ],
+      idActionConfirm: null,
+      selectedArticles: [],
       columns: [
         {
           label: 'no',
@@ -330,6 +342,9 @@ export default {
       isCallApi: (state) => state.admin.article.article.isCallApi,
       articles: (state) => state.admin.article.article.articles,
     }),
+    isAnyCheckboxSelected() {
+      return this.selectedArticles.length > 0
+    },
   },
   watch: {
     articles: {
@@ -351,6 +366,14 @@ export default {
       },
     },
   },
+  mounted() {
+    const self = this
+    this.$nextTick(() => {
+      self.$bus.$on('update-article-action-done', () => {
+        this.selectedArticles = []
+      })
+    })
+  },
   methods: {
     calcOrderNumber(orgNumber) {
       let number = orgNumber + 1
@@ -363,8 +386,8 @@ export default {
     formatNumber(value) {
       return this.$options.filters.formatNumber(value)
     },
-    dayDisplay(date) {
-      return this.$options.filters.dayDisplay(date)
+    dayTimeDisplay(date) {
+      return this.$options.filters.dayTimeDisplay(date)
     },
     async getArticleList() {
       await this.$store.dispatch('admin/article/article/getList', {
@@ -381,6 +404,28 @@ export default {
     },
     hideFilterDetail() {
       this.isShowFilterDetail = false
+    },
+    toggleFeaturedArticle(articleId, feature) {
+      const payload = {
+        is_featured: feature,
+      }
+      this.$store.dispatch('admin/article/article/updateArticleManagement', {
+        id: Number(articleId),
+        payload,
+      })
+    },
+    toggleStatusArticle(articleId, status) {
+      const payload = {
+        is_show: status,
+      }
+      this.$store.dispatch('admin/article/article/updateArticleManagement', {
+        id: Number(articleId),
+        payload,
+      })
+    },
+    handleActionClick(action) {
+      this.idActionConfirm = action.id
+      this.$bvModal.show('article-action-confirmation')
     },
     routeCreate() {
       return this.$router.push({

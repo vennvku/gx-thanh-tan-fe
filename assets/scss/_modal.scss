@@ -63,17 +63,26 @@
           text-align: left;
         }
 
-        .modal-icon-delete {
+        .modal-icon {
           width: 50px;
           height: 50px;
           border-radius: 100%;
-          background-color: #ffe9e8;
-          border: 1px solid #ffe9e8;
-          color: #dd413b;
           font-size: 21px;
           display: flex;
           align-items: center;
           justify-content: center;
+
+          &.icon-delete {
+            background-color: #ffe9e8;
+            border: 1px solid #ffe9e8;
+            color: #dd413b;
+          }
+
+          &.icon-action {
+            background-color: #e1e2fc;
+            border: 1px solid #e1e2fc;
+            color: #444de7;
+          }
         }
       }
 

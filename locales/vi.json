@@ -32,6 +32,7 @@
   },
   "success": {
     "logout": "Bạn đã Đăng xuất thành công. Hẹn gặp lại!!!",
+    "updatedArticle": "Bài viết đã được cập nhật thành công",
     "updatedCategory": "Danh mục đã được cập nhật thành công",
     "createdCategory": "Danh mục đã được tạo mới thành công",
     "deletedCategory": "Danh mục đã được xoá thành công"
@@ -87,7 +88,13 @@
       }
     },
     "modal": {
-      "delete": "Bạn có chắc chắn muốn xóa Bài viết này?"
+      "delete": "Bạn có chắc chắn muốn xóa Bài viết này?",
+      "article": "Bài viết",
+      "publish": "Bạn có chắc chắn muốn Công khai",
+      "unpublish": "Bạn có chắc chắn muốn Không Công khai",
+      "feature": "Bạn có chắc chắn muốn Nổi bật",
+      "unFeature": "Bạn có chắc chắn muốn Không nổi bật",
+      "trash": "Bạn có chắc chắn muốn Xoá"
     },
     "noteSlug": "Slug sẽ được sử dụng làm đường dẫn của Bài viết",
     "articleTextVi": "Nội dung Bài viết - Tiếng Việt",
@@ -129,7 +136,8 @@
     "new": "Tạo mới",
     "saveAndClose": "Lưu & Thoát",
     "close": "Thoát",
-    "ok": "Có, Hãy xoá",
+    "okDelete": "Có, Hãy xoá",
+    "okAction": "Có, Hãy thực hiện",
     "cancel": "Không, Huỷ bỏ"
   },
   "select": {
