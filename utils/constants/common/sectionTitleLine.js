@@ -14,6 +14,10 @@ export default [
     route: SCREEN_PATH.ADMIN.CONTENT.ARTICLE_MANAGEMENT.CREATE,
   },
   {
+    page: 'articleManagementEdit',
+    route: SCREEN_PATH.ADMIN.CONTENT.ARTICLE_MANAGEMENT.EDIT,
+  },
+  {
     page: 'categoryManagement',
     route: SCREEN_PATH.ADMIN.CONTENT.CATEGORY_MANAGEMENT.INDEX,
   },

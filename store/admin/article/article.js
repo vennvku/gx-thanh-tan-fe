@@ -58,6 +58,22 @@ export const actions = {
     }
   },
 
+  async showDetail({ commit }, id) {
+    commit('SET_IS_CALL_API', true)
+    try {
+      const { status, data } = await this.$repositories.articleAdmin.showDetail(
+        id
+      )
+
+      if (+status === successCode.OK && data) {
+        commit('GET_ARTICLE', data)
+      }
+    } catch (error) {
+    } finally {
+      commit('SET_IS_CALL_API', false)
+    }
+  },
+
   async create({ commit }, payload) {
     commit('SET_IS_CALL_API', true)
 
@@ -120,6 +136,25 @@ export const actions = {
       if (+status === successCode.OK && data) {
         dispatch('admin/article/article/getArticles', {}, { root: true })
         Vue.prototype.$bus.$emit('update-article-action-done')
+        successToast('updatedArticle', this.app.i18n)
+      }
+    } catch (error) {
+    } finally {
+      commit('SET_IS_CALL_API', false)
+    }
+  },
+
+  async update({ commit }, { id, payload }) {
+    commit('SET_IS_CALL_API', true)
+
+    try {
+      const { status, data } = await this.$repositories.articleAdmin.update(
+        id,
+        payload
+      )
+
+      if (+status === successCode.OK && data) {
+        await this.$router.go(-1)
         successToast('updatedArticle', this.app.i18n)
       }
     } catch (error) {

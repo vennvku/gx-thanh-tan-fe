@@ -20,4 +20,10 @@ export default ($axios) => ({
       payload
     )
   },
+  showDetail(id) {
+    return $axios.get(`${env.apiUrl}/${resource}/${id}`)
+  },
+  update(id, payload) {
+    return $axios.put(`${env.apiUrl}/${resource}/${id}`, payload)
+  },
 })

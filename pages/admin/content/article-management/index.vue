@@ -161,13 +161,13 @@
 
           <div v-else-if="props.column.field === 'is_show'" class="text-center">
             <div
-              v-if="props.row.is_show === true"
+              v-if="props.row.is_show === 1"
               class="publish-icon-admin icon-table-admin"
             >
               <publish-icon @click="toggleStatusArticle(props.row.id, 0)" />
             </div>
             <div
-              v-if="props.row.is_show === false"
+              v-if="props.row.is_show === 0"
               class="un-publish-icon-admin icon-table-admin"
             >
               <un-publish-icon @click="toggleStatusArticle(props.row.id, 1)" />
@@ -175,7 +175,7 @@
           </div>
 
           <div v-else-if="props.column.field === 'title'">
-            <div class="title-article">
+            <div class="title-article" @click.stop="routeEdit(props.row.id)">
               {{ props.row.translations.vi.title }}
             </div>
             <div class="alias-article">
@@ -430,6 +430,12 @@ export default {
     routeCreate() {
       return this.$router.push({
         name: SCREEN_PATH.ADMIN.CONTENT.ARTICLE_MANAGEMENT.CREATE,
+      })
+    },
+    routeEdit(id) {
+      this.$router.push({
+        name: SCREEN_PATH.ADMIN.CONTENT.ARTICLE_MANAGEMENT.EDIT,
+        query: { id },
       })
     },
   },
