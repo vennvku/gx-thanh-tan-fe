@@ -166,7 +166,9 @@
                       :key="keycategoryChildren"
                       class="sub-menu-item"
                     >
-                      <NuxtLink :to="categoryChildren.url">
+                      <NuxtLink
+                        :to="`/${category.url}/${categoryChildren.url}`"
+                      >
                         <span class="sub-menu-text-item">{{
                           categoryChildren.name[$i18n.locale]
                         }}</span>
@@ -181,7 +183,7 @@
                   class="wrapper-item"
                   :class="{ active: currentPath === category.url }"
                 >
-                  <NuxtLink :to="category.url">
+                  <NuxtLink :to="`/${category.url}`">
                     <h4 class="text-item">{{ category.name[$i18n.locale] }}</h4>
                   </NuxtLink>
                 </div>
@@ -226,18 +228,7 @@
             :class="{ active: isShowSearchBar }"
             @click="hideSearchBar()"
           >
-            <svg
-              width="1em"
-              height="1em"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M16.707,8.707,13.414,12l3.293,3.293a1,1,0,1,1-1.414,1.414L12,13.414,8.707,16.707a1,1,0,1,1-1.414-1.414L10.586,12,7.293,8.707A1,1,0,1,1,8.707,7.293L12,10.586l3.293-3.293a1,1,0,1,1,1.414,1.414Z"
-                fill="currentColor"
-              />
-            </svg>
+            <close-icon />
           </div>
         </div>
       </b-container>
@@ -260,6 +251,7 @@ export default {
     MultiLanguage,
     ChurchIcon: ICON.church,
     ArrowBottomIcon: ICON.arrowBottom,
+    CloseIcon: ICON.close,
   },
   data() {
     return {
@@ -270,7 +262,7 @@ export default {
       isFixed: false,
       lastScrollTop: 0,
       initialNavOffset: 0,
-      positionTopMenu: 206,
+      positionTopMenu: 205,
       isShowSearchBar: false,
       categoriesData: [],
     }
@@ -318,12 +310,12 @@ export default {
       const menusideElement = this.$refs.menuside
       if (menusideElement) {
         const rect = menusideElement.getBoundingClientRect()
-        this.positionTopMenu = rect.top + 46
-        if (this.positionTopMenu < 46) {
-          this.positionTopMenu = 46
+        this.positionTopMenu = rect.top + 45
+        if (this.positionTopMenu < 45) {
+          this.positionTopMenu = 45
         }
       } else {
-        this.positionTopMenu = 46
+        this.positionTopMenu = 45
       }
     },
     toggleNavbar() {
@@ -339,9 +331,6 @@ export default {
       if (!this.$refs.searchbar.contains(event.target)) {
         this.isShowSearchBar = false
       }
-    },
-    previousPage() {
-      this.$router.go(-1)
     },
   },
 }
