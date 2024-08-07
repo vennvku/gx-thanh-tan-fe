@@ -169,7 +169,6 @@
           margin-left: 8px;
           padding-bottom: 10px;
           margin-top: 5px;
-          display: none;
 
           &.is-toggle-submenu {
             display: block;
@@ -208,6 +207,7 @@
                 font-size: 14px;
                 padding: 5px 10px;
                 border-radius: 5px;
+                z-index: 99;
 
                 &.active {
                   background-color: $bg-active-item-menu-admin;

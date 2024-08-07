@@ -53,6 +53,7 @@
       "categoryManagement": "Quản lý Danh mục",
       "categoryManagementCreate": "Tạo mới Danh mục",
       "categoryManagementEdit": "Cập nhật Danh mục",
+      "fixedPageManagement": "Quản lý Bài Viết Cố định",
       "featuredArticleManagement": "Quản lý Bài viết Nổi bật",
       "setting": "Cài đặt",
       "help": "Trợ giúp"
@@ -62,16 +63,17 @@
         "heading": "Dashboard"
       },
       "content": {
-        "heading": "Content",
-        "articleManagement": "Articles",
-        "categoryManagement": "Category",
-        "featuredArticleManagement": "Featured Articles"
+        "heading": "Nội dung",
+        "articleManagement": "Bài Viết",
+        "categoryManagement": "Danh Mục",
+        "fixedPageManagement": "Bài Viết Cố định",
+        "featuredArticleManagement": "Bài Viết Nổi Bật"
       },
       "setting": {
-        "heading": "Setting"
+        "heading": "Cài đặt"
       },
       "help": {
-        "heading": "Help"
+        "heading": "Giúp đỡ"
       }
     },
     "cofirm": "Bạn có chắc không?"

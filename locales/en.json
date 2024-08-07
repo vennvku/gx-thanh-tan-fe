@@ -53,6 +53,7 @@
       "categoryManagement": "Category Management",
       "categoryManagementCreate": "Create Category",
       "categoryManagementEdit": "Update Category",
+      "fixedPageManagement": "Fixed Page Management",
       "featuredArticleManagement": "Featured Article Management",
       "setting": "Setting",
       "help": "Help"
@@ -65,6 +66,7 @@
         "heading": "Content",
         "articleManagement": "Articles",
         "categoryManagement": "Category",
+        "fixedPageManagement": "Fixed Page",
         "featuredArticleManagement": "Featured Articles"
       },
       "setting": {

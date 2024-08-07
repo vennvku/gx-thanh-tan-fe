@@ -47,32 +47,31 @@
               class="right-arrow-icon"
             />
           </div>
-
-          <div
-            v-if="item.children"
-            class="sub-menu-sidebar-admin"
-            :class="{ 'is-toggle-submenu': item.isOpen }"
-          >
-            <ul class="list-sub-menu-sidebar-admin">
-              <li
-                v-for="(childItem, childKey) in item.children"
-                :key="childKey"
-                class="item-sub-menu-sidebar-admin"
-              >
-                <div class="border-left-admin"></div>
-                <div class=""></div>
-                <div class="border-left-radius-admin"></div>
-                <span
-                  class="title-sub-menu-sidebar-admin"
-                  :class="{
-                    active: currentPath === childItem.router,
-                  }"
-                  @click="goToChildItem(childItem)"
-                  >{{ $t(`admin.menu.${item.title}.${childItem.title}`) }}</span
+          <b-collapse v-if="item.children" v-model="item.isOpen">
+            <div class="sub-menu-sidebar-admin">
+              <ul class="list-sub-menu-sidebar-admin">
+                <li
+                  v-for="(childItem, childKey) in item.children"
+                  :key="childKey"
+                  class="item-sub-menu-sidebar-admin"
                 >
-              </li>
-            </ul>
-          </div>
+                  <div class="border-left-admin"></div>
+                  <div class=""></div>
+                  <div class="border-left-radius-admin"></div>
+                  <span
+                    class="title-sub-menu-sidebar-admin"
+                    :class="{
+                      active: currentPath === childItem.router,
+                    }"
+                    @click="goToChildItem(childItem)"
+                    >{{
+                      $t(`admin.menu.${item.title}.${childItem.title}`)
+                    }}</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </b-collapse>
         </li>
       </ul>
     </div>

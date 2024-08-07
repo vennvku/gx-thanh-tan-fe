@@ -19,6 +19,11 @@ export const SCREEN_PATH = {
         CREATE: 'admin-content-category-management-create',
         EDIT: 'admin-content-category-management-edit',
       },
+      FIXED_PAGE_MANAGEMENT: {
+        INDEX: 'admin-content-fixed-page-management',
+        CREATE: 'admin-content-fixed-page-management-create',
+        EDIT: 'admin-content-fixed-page-management-edit',
+      },
       FEATURED_ARTICLE_MANAGEMENT: {
         INDEX: 'admin-content-featured-article-management',
       },

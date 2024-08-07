@@ -21,6 +21,10 @@ export default [
         router: SCREEN_PATH.ADMIN.CONTENT.CATEGORY_MANAGEMENT.INDEX,
       },
       {
+        title: 'fixedPageManagement',
+        router: SCREEN_PATH.ADMIN.CONTENT.FIXED_PAGE_MANAGEMENT.INDEX,
+      },
+      {
         title: 'featuredArticleManagement',
         router: SCREEN_PATH.ADMIN.CONTENT.FEATURED_ARTICLE_MANAGEMENT.INDEX,
       },
