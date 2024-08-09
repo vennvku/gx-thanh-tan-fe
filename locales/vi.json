@@ -53,7 +53,8 @@
       "categoryManagement": "Quản lý Danh mục",
       "categoryManagementCreate": "Tạo mới Danh mục",
       "categoryManagementEdit": "Cập nhật Danh mục",
-      "fixedPageManagement": "Quản lý Bài Viết Cố định",
+      "fixedPageManagement": "Quản lý Bài viết Cố định",
+      "fixedPageManagementCreate": "Tạo mới Bài viết Cố định",
       "featuredArticleManagement": "Quản lý Bài viết Nổi bật",
       "setting": "Cài đặt",
       "help": "Trợ giúp"
@@ -139,6 +140,9 @@
         "status": "Trạng Thái",
         "action": "Hành Động"
       }
+    },
+    "create": {
+      "titleTop": "Tạo bài viết cho Danh mục: "
     }
   },
   "table": {

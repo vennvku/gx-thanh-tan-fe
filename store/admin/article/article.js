@@ -162,6 +162,22 @@ export const actions = {
       commit('SET_IS_CALL_API', false)
     }
   },
+
+  async createFixedPage({ commit }, payload) {
+    commit('SET_IS_CALL_API', true)
+
+    try {
+      const { status } = await this.$repositories.articleAdmin.createFixedPage(
+        payload
+      )
+      if (+status === successCode.CREATED) {
+        await this.$router.go(-1)
+      }
+    } catch (error) {
+    } finally {
+      commit('SET_IS_CALL_API', false)
+    }
+  },
 }
 
 export const mutations = {

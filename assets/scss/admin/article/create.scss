@@ -44,6 +44,14 @@
 
   .main-create-article {
     padding-top: 10px;
+
+    .title-main-create-article {
+      font-size: 32px;
+      font-weight: 600;
+      text-align: center;
+      padding-bottom: 30px;
+    }
+
     .title-slug-create-article {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));

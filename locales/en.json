@@ -54,6 +54,7 @@
       "categoryManagementCreate": "Create Category",
       "categoryManagementEdit": "Update Category",
       "fixedPageManagement": "Fixed Page Management",
+      "fixedPageManagementCreate": "Create Fixed Page",
       "featuredArticleManagement": "Featured Article Management",
       "setting": "Setting",
       "help": "Help"
@@ -139,6 +140,9 @@
         "status": "status",
         "action": "Action"
       }
+    },
+    "create": {
+      "titleTop": "Create Page for Category: "
     }
   },
   "table": {

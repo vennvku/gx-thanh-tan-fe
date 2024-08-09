@@ -85,7 +85,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { ICON } from '~/utils/constants'
+import { ICON, SCREEN_PATH } from '~/utils/constants'
 
 export default {
   name: 'FixedPageManagement',
@@ -101,6 +101,7 @@ export default {
   data() {
     return {
       ICON,
+      SCREEN_PATH,
       keywords: null,
       columns: [
         {
@@ -164,6 +165,13 @@ export default {
     },
     formatNumber(value) {
       return this.$options.filters.formatNumber(value)
+    },
+
+    routeCreate(id) {
+      return this.$router.push({
+        name: SCREEN_PATH.ADMIN.CONTENT.FIXED_PAGE_MANAGEMENT.CREATE,
+        query: { id },
+      })
     },
   },
 }
