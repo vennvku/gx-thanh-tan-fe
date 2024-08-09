@@ -66,7 +66,7 @@
             <b-button
               v-else
               class="btn-action btn-edit"
-              @click.stop="routeEdit(props.row.id)"
+              @click.stop="routeEdit(props.row.id, props.row.page.id)"
             >
               <edit-icon />
               <span class="text-btn-action">Edit</span></b-button
@@ -166,11 +166,16 @@ export default {
     formatNumber(value) {
       return this.$options.filters.formatNumber(value)
     },
-
     routeCreate(id) {
       return this.$router.push({
         name: SCREEN_PATH.ADMIN.CONTENT.FIXED_PAGE_MANAGEMENT.CREATE,
         query: { id },
+      })
+    },
+    routeEdit(categoryId, articleId) {
+      return this.$router.push({
+        name: SCREEN_PATH.ADMIN.CONTENT.FIXED_PAGE_MANAGEMENT.EDIT,
+        query: { categoryId, articleId },
       })
     },
   },

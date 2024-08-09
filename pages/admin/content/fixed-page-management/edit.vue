@@ -24,7 +24,7 @@
 
         <div class="main-create-article">
           <div v-if="categoryData" class="title-main-create-article">
-            {{ $t('fixedPageManagement.create.titleTop') }}
+            {{ $t('fixedPageManagement.edit.titleTop') }}
             {{ categoryData.name[$i18n.locale] }}
           </div>
 
@@ -85,7 +85,7 @@ import { mapState } from 'vuex'
 import { ICON, regex, CUSTOM_TOOLBAR_EDITOR } from '~/utils/constants'
 
 export default {
-  name: 'FixedPageManagementCreate',
+  name: 'FixedPageManagementEdit',
   components: {
     saveIcon: ICON.save,
   },
@@ -106,13 +106,18 @@ export default {
   async fetch() {
     await this.$store.dispatch(
       'admin/category/category/showDetail',
-      Number(this.$route.query.id)
+      Number(this.$route.query.categoryId)
+    )
+
+    await this.$store.dispatch(
+      'admin/article/article/showDetail',
+      Number(this.$route.query.articleId)
     )
   },
   head() {
     return {
       title: `${this.$t('title')} | ${this.$t(
-        'admin.page.fixedPageManagementCreate'
+        'admin.page.fixedPageManagementEdit'
       )}`,
     }
   },
@@ -120,9 +125,18 @@ export default {
     ...mapState({
       isCallApi: (state) => state.admin.category.category.isCallApi,
       category: (state) => state.admin.category.category.category,
+      article: (state) => state.admin.article.article.article,
     }),
   },
   watch: {
+    article: {
+      handler(data) {
+        if (data) {
+          this.contentVi = data.translations.vi.content
+          this.contentEn = data.translations.en.content
+        }
+      },
+    },
     category: {
       handler(data) {
         if (data) {
@@ -149,22 +163,21 @@ export default {
     validateContentVi(value) {
       this.isSubmitDisabled = !value.trim()
     },
-    getDataToCreate() {
+    getDataToUpdate() {
       return {
-        slug: this.categoryData.url,
         contentVi: this.contentVi,
         contentEn: this.contentEn,
-        category_id: this.categoryData.id,
-        titleVi: this.categoryData.name.vi,
-        titleEn: this.categoryData.name.en,
       }
     },
     previousPage() {
       this.$router.go(-1)
     },
     onSubmit() {
-      const payload = this.getDataToCreate()
-      this.$store.dispatch('admin/article/article/createFixedPage', payload)
+      const payload = this.getDataToUpdate()
+      this.$store.dispatch('admin/article/article/updateFixedPage', {
+        id: Number(this.$route.query.articleId),
+        payload,
+      })
     },
   },
 }

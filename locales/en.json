@@ -55,6 +55,7 @@
       "categoryManagementEdit": "Update Category",
       "fixedPageManagement": "Fixed Page Management",
       "fixedPageManagementCreate": "Create Fixed Page",
+      "fixedPageManagementEdit": "Update Fixed Page",
       "featuredArticleManagement": "Featured Article Management",
       "setting": "Setting",
       "help": "Help"
@@ -143,6 +144,9 @@
     },
     "create": {
       "titleTop": "Create Page for Category: "
+    },
+    "edit": {
+      "titleTop": "Update Page for Category: "
     }
   },
   "table": {

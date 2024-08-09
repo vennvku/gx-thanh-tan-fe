@@ -55,6 +55,7 @@
       "categoryManagementEdit": "Cập nhật Danh mục",
       "fixedPageManagement": "Quản lý Bài viết Cố định",
       "fixedPageManagementCreate": "Tạo mới Bài viết Cố định",
+      "fixedPageManagementEdit": "Cập nhật Bài viết Cố định",
       "featuredArticleManagement": "Quản lý Bài viết Nổi bật",
       "setting": "Cài đặt",
       "help": "Trợ giúp"
@@ -143,6 +144,9 @@
     },
     "create": {
       "titleTop": "Tạo bài viết cho Danh mục: "
+    },
+    "edit": {
+      "titleTop": "Cập nhật bài viết cho Danh mục: "
     }
   },
   "table": {

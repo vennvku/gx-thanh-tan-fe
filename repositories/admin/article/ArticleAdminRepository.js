@@ -29,4 +29,7 @@ export default ($axios) => ({
   createFixedPage(payload) {
     return $axios.post(`${env.apiUrl}/admin/create-fixed-page`, payload)
   },
+  updateFixedPage(id, payload) {
+    return $axios.post(`${env.apiUrl}/admin/update-fixed-page/${id}`, payload)
+  },
 })

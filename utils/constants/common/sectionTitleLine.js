@@ -38,6 +38,10 @@ export default [
     route: SCREEN_PATH.ADMIN.CONTENT.FIXED_PAGE_MANAGEMENT.CREATE,
   },
   {
+    page: 'fixedPageManagementEdit',
+    route: SCREEN_PATH.ADMIN.CONTENT.FIXED_PAGE_MANAGEMENT.EDIT,
+  },
+  {
     page: 'featuredArticleManagement',
     route: SCREEN_PATH.ADMIN.CONTENT.FEATURED_ARTICLE_MANAGEMENT.INDEX,
   },
