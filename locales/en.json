@@ -131,6 +131,16 @@
       "choosenParentMenu": "Select Parent Menu for Menu: (*):"
     }
   },
+  "fixedPageManagement": {
+    "data": {
+      "header": {
+        "no": "No.",
+        "name_category": "Name Category",
+        "status": "status",
+        "action": "Action"
+      }
+    }
+  },
   "table": {
     "total": "Total",
     "article": "Article"

@@ -192,6 +192,36 @@ export const actions = {
       commit('SET_IS_CALL_API', false)
     }
   },
+
+  async getFixedPage({ commit }, params = null) {
+    commit('SET_IS_CALL_API', true)
+    const startTime = performance.now()
+    setTimeout(() => {
+      Vue.prototype.$bus.$emit('toggle-loading')
+    }, 10)
+
+    try {
+      const { status, data } =
+        await this.$repositories.categoryAdmin.getFixedPage(params)
+
+      if (+status === successCode.OK && data) {
+        commit('GET_CATEGORIES', data)
+      }
+    } catch (error) {
+      commit('GET_CATEGORIES', [])
+    } finally {
+      commit('SET_IS_CALL_API', false)
+
+      const executeTime = performance.now() - startTime
+      if (executeTime < TIME_LOADING) {
+        setTimeout(() => {
+          Vue.prototype.$bus.$emit('toggle-loading')
+        }, TIME_LOADING - executeTime)
+      } else {
+        Vue.prototype.$bus.$emit('toggle-loading')
+      }
+    }
+  },
 }
 
 export const mutations = {

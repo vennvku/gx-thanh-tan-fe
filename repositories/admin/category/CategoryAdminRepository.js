@@ -26,4 +26,7 @@ export default ($axios) => ({
   delete(id) {
     return $axios.delete(`${env.apiUrl}/${resource}/${id}`)
   },
+  getFixedPage(params) {
+    return $axios.get(`${env.apiUrl}/admin/get-categories-fixed`, { params })
+  },
 })

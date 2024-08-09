@@ -131,6 +131,16 @@
       "choosenParentMenu": "Chọn Menu Cha cho Menu (*):"
     }
   },
+  "fixedPageManagement": {
+    "data": {
+      "header": {
+        "no": "No.",
+        "name_category": "Tên Danh Mục",
+        "status": "Trạng Thái",
+        "action": "Hành Động"
+      }
+    }
+  },
   "table": {
     "total": "Tổng",
     "article": "Bài viết"
