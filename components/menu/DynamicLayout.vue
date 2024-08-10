@@ -40,9 +40,9 @@
 </template>
 
 <script>
-import TempletBoxCategory from '~/components/pages/TempletBoxCategory'
-import TempletSectionTopPage from '~/components/pages/TempletSectionTopPage'
-import TempletListArticlePage from '~/components/pages/TempletListArticlePage'
+import TempletBoxCategory from '~/components/menu/layout/TempletBoxCategory'
+import TempletSectionTopPage from '~/components/menu/layout/TempletSectionTopPage'
+import TempletListArticlePage from '~/components/menu/layout/TempletListArticlePage'
 import { SCREEN_PATH, ICON } from '~/utils/constants'
 
 export default {

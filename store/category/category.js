@@ -4,6 +4,7 @@ export const state = () => ({
   isCallApi: false,
   categories: [],
   type: null,
+  chainCategory: [],
 })
 
 export const actions = {
@@ -37,6 +38,22 @@ export const actions = {
       commit('SET_IS_CALL_API', false)
     }
   },
+
+  async getChainCategory({ commit }, idCategory) {
+    commit('SET_IS_CALL_API', true)
+    try {
+      const { status, data } =
+        await this.$repositories.category.getChainCategory(idCategory)
+
+      if (+status === successCode.OK && data) {
+        commit('GET_CHAIN_CATEGORY', data)
+      }
+    } catch (error) {
+      commit('GET_CHAIN_CATEGORY', [])
+    } finally {
+      commit('SET_IS_CALL_API', false)
+    }
+  },
 }
 
 export const mutations = {
@@ -48,5 +65,8 @@ export const mutations = {
   },
   GET_TYPE(state, type) {
     state.type = type
+  },
+  GET_CHAIN_CATEGORY(state, chainCategory) {
+    state.chainCategory = chainCategory
   },
 }

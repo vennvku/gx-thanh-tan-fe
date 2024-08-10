@@ -9,4 +9,8 @@ export default ($axios) => ({
   showDetailArticle(slug) {
     return $axios.get(`${env.apiUrl}/${resource}/${slug}`)
   },
+
+  showDetailFixedPage(idCategory) {
+    return $axios.get(`${env.apiUrl}/show-detail-fixed-page/${idCategory}`)
+  },
 })

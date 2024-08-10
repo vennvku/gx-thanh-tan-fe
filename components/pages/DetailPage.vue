@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cont-view">
     <div class="chain-navs">
       <ul>
         <li>
@@ -21,36 +21,36 @@
         </li>
       </ul>
     </div>
-    <div class="wrapper-caption">
-      <h4 class="caption">{{ $t('menu.news.subMenus.parishNews') }}</h4>
-    </div>
-    <templet-section-top-page />
-    <div class="section-container">
-      <div class="row">
-        <div class="col-content pad-450">
-          <templet-list-article-page />
-        </div>
-        <div class="col-content fit-450">
-          <templet-box-category />
-          <templet-box-category />
-        </div>
+
+    <h1 v-if="isCallApi">Loading...</h1>
+
+    <div v-else class="detail-content">
+      {{ article }}
+
+      <!-- <div class="lead-title">
+        {{ article.translations[$i18n.locale].title }}
       </div>
+
+      <div class="date">{{ article.created_at }}</div>
+
+      <div class="content-detail-page">
+        <p>{{ article.translations[$i18n.locale].content }}</p>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
-import TempletBoxCategory from '~/components/pages/TempletBoxCategory'
-import TempletSectionTopPage from '~/components/pages/TempletSectionTopPage'
-import TempletListArticlePage from '~/components/pages/TempletListArticlePage'
+import { mapState } from 'vuex'
 import { SCREEN_PATH, ICON } from '~/utils/constants'
 
 export default {
-  name: 'ParishNews',
-  components: {
-    TempletSectionTopPage,
-    TempletListArticlePage,
-    TempletBoxCategory,
+  name: 'DetailPage',
+  props: {
+    idCategory: {
+      type: Number,
+      default: () => null,
+    },
   },
   data() {
     return {
@@ -58,10 +58,17 @@ export default {
       ICON,
     }
   },
-  head() {
-    return {
-      title: this.$t('page.parishNews'),
-    }
+  async fetch() {
+    await this.$store.dispatch(
+      'article/article/showDetailArticle',
+      this.$route.params.slug
+    )
+  },
+  computed: {
+    ...mapState({
+      isCallApi: (state) => state.article.article.isCallApi,
+      article: (state) => state.article.article.article,
+    }),
   },
   mounted() {
     this.$store.dispatch('common/path/setCurrentPath', 'news')
@@ -70,5 +77,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'assets/scss/pages/templet-page';
+@import 'assets/scss/pages/detail-page';
 </style>

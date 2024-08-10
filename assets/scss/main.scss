@@ -131,6 +131,10 @@ body {
     margin: 0;
     padding: 0;
   }
+
+  p {
+    margin-bottom: 0 !important;
+  }
 }
 
 // Transition
@@ -326,5 +330,74 @@ body {
         font-size: 24px;
       }
     }
+  }
+}
+
+.ql-editor {
+  font-family: 'Noto Serif', 'Times New Roman', Times, Georgia, serif;
+  font-size: 20px !important;
+}
+
+.content-detail-page {
+  font-size: 20px;
+
+  .ql-align-center {
+    text-align: center;
+  }
+
+  .ql-align-right {
+    text-align: right;
+  }
+
+  .ql-align-justify {
+    text-align: justify;
+  }
+
+  .ql-align-left {
+    text-align: left;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+  }
+
+  h3 {
+    font-size: 1.17em;
+    margin: 0;
+    padding: 0;
+  }
+
+  h4 {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+  }
+
+  h5 {
+    font-size: 0.83em;
+    margin: 0;
+    padding: 0;
+  }
+
+  h6 {
+    font-size: 0.67em;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    font-size: 1em;
+    line-height: 1.6;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
   }
 }
