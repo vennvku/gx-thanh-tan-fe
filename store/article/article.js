@@ -7,6 +7,7 @@ export const state = () => ({
   articles: [],
   topFeaturedArticle: [],
   latestArticles: [],
+  layoutArticles: [],
 })
 
 export const actions = {
@@ -58,11 +59,11 @@ export const actions = {
     }
   },
 
-  async getTopFeaturedArticle({ commit }, slug) {
+  async getTopFeaturedArticle({ commit }, params) {
     commit('SET_IS_CALL_API', true)
     try {
       const { status, data } =
-        await this.$repositories.article.getTopFeaturedArticle(slug)
+        await this.$repositories.article.getTopFeaturedArticle(params)
 
       if (+status === successCode.OK && data) {
         commit('GET_TOP_FEATURED_ARTICLE', data)
@@ -106,6 +107,22 @@ export const actions = {
       commit('SET_IS_CALL_API', false)
     }
   },
+
+  async getArticleLayout({ commit }, params) {
+    commit('SET_IS_CALL_API', true)
+    try {
+      const { status, data } =
+        await this.$repositories.article.getTopFeaturedArticle(params)
+
+      if (+status === successCode.OK && data) {
+        commit('GET_LAYOUT_ARTICLES', data)
+      }
+    } catch (error) {
+      commit('GET_LAYOUT_ARTICLES', [])
+    } finally {
+      commit('SET_IS_CALL_API', false)
+    }
+  },
 }
 
 export const mutations = {
@@ -126,5 +143,8 @@ export const mutations = {
   },
   GET_LATEST_ARTICLES(state, latestArticles) {
     state.latestArticles = latestArticles
+  },
+  GET_LAYOUT_ARTICLES(state, layoutArticles) {
+    state.layoutArticles = layoutArticles
   },
 }

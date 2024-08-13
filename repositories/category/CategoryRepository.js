@@ -11,4 +11,7 @@ export default ($axios) => ({
   getChainCategory(slug) {
     return $axios.get(`${env.apiUrl}/get-chain-category/${slug}`)
   },
+  showDetail(url) {
+    return $axios.get(`${env.apiUrl}/${resource}/${url}`)
+  },
 })

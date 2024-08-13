@@ -3,6 +3,7 @@ import { successCode } from '~/utils/constants'
 export const state = () => ({
   isCallApi: false,
   categories: [],
+  category: null,
   type: null,
   chainCategory: {},
 })
@@ -54,6 +55,21 @@ export const actions = {
       commit('SET_IS_CALL_API', false)
     }
   },
+
+  async showDetail({ commit }, url) {
+    commit('SET_IS_CALL_API', true)
+    try {
+      const { status, data } = await this.$repositories.category.showDetail(url)
+
+      if (+status === successCode.OK && data) {
+        commit('GET_CATEGORY', data)
+      }
+    } catch (error) {
+      commit('GET_CATEGORY', null)
+    } finally {
+      commit('SET_IS_CALL_API', false)
+    }
+  },
 }
 
 export const mutations = {
@@ -62,6 +78,9 @@ export const mutations = {
   },
   GET_CATEGORIES(state, categories) {
     state.categories = categories
+  },
+  GET_CATEGORY(state, category) {
+    state.category = category
   },
   GET_TYPE(state, type) {
     state.type = type

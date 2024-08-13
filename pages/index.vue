@@ -111,7 +111,9 @@
     </div>
 
     <div class="row">
-      <div class="col-content pad-320"><templet-post-first /></div>
+      <div class="col-content pad-320">
+        <templet-post-first :url="urlPostFirst" />
+      </div>
       <div class="col-content fit-320">2 3</div>
     </div>
   </div>
@@ -135,6 +137,7 @@ export default {
       mainNews: [],
       slideNews: [],
       listNews: [],
+      urlPostFirst: 'parish-news',
     }
   },
   async fetch() {
@@ -154,10 +157,10 @@ export default {
   watch: {
     featuredLatestNews: {
       handler(articles) {
-        if (articles && articles.count > 0) {
-          this.slideNews = articles.result.slice(0, 7)
-          this.listNews = articles.count > 7 ? articles.result.slice(7, 10) : []
-          this.mainNews = articles.count > 10 ? articles.result.slice(10) : []
+        if (articles && articles.length > 0) {
+          this.slideNews = articles.slice(0, 7)
+          this.listNews = articles.length > 7 ? articles.slice(7, 10) : []
+          this.mainNews = articles.length > 10 ? articles.slice(10) : []
         } else {
           this.slideNews = []
           this.listNews = []

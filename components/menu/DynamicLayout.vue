@@ -38,8 +38,8 @@
           <templet-list-article-page />
         </div>
         <div class="col-content fit-450">
-          <templet-box-category />
-          <templet-box-category />
+          <templet-box-category :url="'diocesan-news'" />
+          <!-- <templet-box-category /> -->
         </div>
       </div>
     </div>

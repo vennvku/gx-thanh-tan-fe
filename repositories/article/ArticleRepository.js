@@ -4,7 +4,7 @@ const resource = 'articles'
 
 export default ($axios) => ({
   getFeaturedLatestNews() {
-    return $axios.get(`${env.apiUrl}/${resource}/featured-latest-news`)
+    return $axios.get(`${env.apiUrl}/get-featured-latest-news`)
   },
   showDetailArticle(slug) {
     return $axios.get(`${env.apiUrl}/${resource}/${slug}`)
@@ -12,8 +12,8 @@ export default ($axios) => ({
   showDetailFixedPage(slug) {
     return $axios.get(`${env.apiUrl}/show-detail-fixed-page/${slug}`)
   },
-  getTopFeaturedArticle(slug) {
-    return $axios.get(`${env.apiUrl}/get-top-featured-article/${slug}`)
+  getTopFeaturedArticle(params) {
+    return $axios.get(`${env.apiUrl}/get-top-featured-article`, { params })
   },
   getListArticles(params) {
     return $axios.get(`${env.apiUrl}/get-list-articles`, { params })

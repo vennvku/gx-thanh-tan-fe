@@ -82,10 +82,10 @@ export default {
     }
   },
   async fetch() {
-    await this.$store.dispatch(
-      'article/article/getTopFeaturedArticle',
-      this.$route.params.slug
-    )
+    await this.$store.dispatch('article/article/getTopFeaturedArticle', {
+      url: this.$route.params.slug,
+      limit: 4,
+    })
 
     await this.$store.dispatch('article/article/getLatestArticles')
   },
