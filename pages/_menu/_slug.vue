@@ -1,8 +1,8 @@
 <template>
   <div>
     <div v-if="type">
-      <div v-if="typeCategory === 1">
-        <detail-fixed-page :id-category="idCategory" />
+      <div v-if="type.type === 1">
+        <detail-fixed-page />
       </div>
       <div v-else><dynamic-layout /></div>
     </div>
@@ -21,12 +21,6 @@ export default {
     DynamicLayout,
     DetailFixedPage,
   },
-  data() {
-    return {
-      typeCategory: null,
-      idCategory: null,
-    }
-  },
   async fetch() {
     await this.$store.dispatch('category/category/getTypeCategory', {
       slug: this.$route.params.slug,
@@ -40,16 +34,6 @@ export default {
       const path = this.$route.path
       const segments = path.split('/')
       return segments[1]
-    },
-  },
-  watch: {
-    type: {
-      handler(data) {
-        if (data) {
-          this.typeCategory = data.type
-          this.idCategory = data.category_id
-        }
-      },
     },
   },
   mounted() {

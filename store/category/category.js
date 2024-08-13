@@ -39,11 +39,11 @@ export const actions = {
     }
   },
 
-  async getChainCategory({ commit }, idCategory) {
+  async getChainCategory({ commit }, slug) {
     commit('SET_IS_CALL_API', true)
     try {
       const { status, data } =
-        await this.$repositories.category.getChainCategory(idCategory)
+        await this.$repositories.category.getChainCategory(slug)
 
       if (+status === successCode.OK && data) {
         commit('GET_CHAIN_CATEGORY', data)

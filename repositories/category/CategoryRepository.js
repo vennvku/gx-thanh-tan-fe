@@ -8,7 +8,7 @@ export default ($axios) => ({
   getTypeCategory(payload) {
     return $axios.post(`${env.apiUrl}/get-type-category`, payload)
   },
-  getChainCategory(idCategory) {
-    return $axios.get(`${env.apiUrl}/get-chain-category/${idCategory}`)
+  getChainCategory(slug) {
+    return $axios.get(`${env.apiUrl}/get-chain-category/${slug}`)
   },
 })

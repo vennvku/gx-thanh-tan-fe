@@ -39,11 +39,11 @@ export const actions = {
     }
   },
 
-  async showDetailFixedPage({ commit }, idCategory) {
+  async showDetailFixedPage({ commit }, slug) {
     commit('SET_IS_CALL_API', true)
     try {
       const { status, data } =
-        await this.$repositories.article.showDetailFixedPage(idCategory)
+        await this.$repositories.article.showDetailFixedPage(slug)
 
       if (+status === successCode.OK && data) {
         commit('GET_ARTICLE', data)

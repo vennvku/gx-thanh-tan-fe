@@ -10,14 +10,21 @@
         <li class="double-right-icon">
           <b-img :src="ICON.doubleRight"></b-img>
         </li>
-        <li>{{ $t('menu.news.heading') }}</li>
-        <li class="double-right-icon">
-          <b-img :src="ICON.doubleRight"></b-img>
-        </li>
-        <li class="active">
-          <NuxtLink to="/">
-            <span>{{ $t('menu.news.subMenus.parishNews') }}</span>
-          </NuxtLink>
+        <li
+          v-for="(chain, key) in chainData"
+          :key="key"
+          :class="{ active: isLastItem(key) }"
+        >
+          <span v-if="chain.isFixedPage === 0 && chain.isParent === false">
+            <NuxtLink to="/">
+              <span>{{ chain.name[$i18n.locale] }}</span>
+            </NuxtLink>
+          </span>
+          <span v-else>{{ chain.name[$i18n.locale] }}</span>
+
+          <span v-if="!isLastItem(key)"
+            ><b-img :src="ICON.doubleRight"></b-img
+          ></span>
         </li>
       </ul>
     </div>
@@ -40,6 +47,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import TempletBoxCategory from '~/components/menu/layout/TempletBoxCategory'
 import TempletSectionTopPage from '~/components/menu/layout/TempletSectionTopPage'
 import TempletListArticlePage from '~/components/menu/layout/TempletListArticlePage'
@@ -56,16 +64,42 @@ export default {
     return {
       SCREEN_PATH,
       ICON,
+      chainData: [],
     }
   },
+  async fetch() {
+    await this.$store.dispatch(
+      'category/category/getChainCategory',
+      this.$route.params.slug
+    )
+  },
+
   // head() {
   //   return {
   //     title: this.$t('page.parishNews'),
   //   }
   // },
-  // mounted() {
-  //   this.$store.dispatch('common/path/setCurrentPath', 'news')
-  // },
+  computed: {
+    ...mapState({
+      chainCategory: (state) => state.category.category.chainCategory,
+    }),
+  },
+  watch: {
+    chainCategory: {
+      handler(data) {
+        if (data.length > 0) {
+          this.chainData = data
+        } else {
+          this.chainData = []
+        }
+      },
+    },
+  },
+  methods: {
+    isLastItem(index) {
+      return index === this.chainData.length - 1
+    },
+  },
 }
 </script>
 

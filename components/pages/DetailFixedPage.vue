@@ -42,12 +42,6 @@ import { SCREEN_PATH, ICON } from '~/utils/constants'
 
 export default {
   name: 'DetailFixedPage',
-  props: {
-    idCategory: {
-      type: Number,
-      default: () => null,
-    },
-  },
   data() {
     return {
       SCREEN_PATH,
@@ -59,11 +53,11 @@ export default {
   async fetch() {
     await this.$store.dispatch(
       'article/article/showDetailFixedPage',
-      this.idCategory
+      this.$route.params.slug
     )
     await this.$store.dispatch(
       'category/category/getChainCategory',
-      this.idCategory
+      this.$route.params.slug
     )
   },
   computed: {
@@ -90,6 +84,8 @@ export default {
       handler(data) {
         if (data.length > 0) {
           this.chainData = data
+        } else {
+          this.chainData = []
         }
       },
     },
