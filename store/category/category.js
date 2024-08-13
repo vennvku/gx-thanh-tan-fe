@@ -4,7 +4,7 @@ export const state = () => ({
   isCallApi: false,
   categories: [],
   type: null,
-  chainCategory: [],
+  chainCategory: {},
 })
 
 export const actions = {
@@ -49,7 +49,7 @@ export const actions = {
         commit('GET_CHAIN_CATEGORY', data)
       }
     } catch (error) {
-      commit('GET_CHAIN_CATEGORY', [])
+      commit('GET_CHAIN_CATEGORY', {})
     } finally {
       commit('SET_IS_CALL_API', false)
     }

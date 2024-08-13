@@ -28,8 +28,8 @@
         </li>
       </ul>
     </div>
-    <div class="wrapper-caption">
-      <h4 class="caption">{{ $t('menu.news.subMenus.parishNews') }}</h4>
+    <div v-if="categoryData" class="wrapper-caption">
+      <h4 class="caption">{{ categoryData.name[$i18n.locale] }}</h4>
     </div>
     <templet-section-top-page />
     <div class="section-container">
@@ -65,6 +65,7 @@ export default {
       SCREEN_PATH,
       ICON,
       chainData: [],
+      categoryData: null,
     }
   },
   async fetch() {
@@ -87,10 +88,12 @@ export default {
   watch: {
     chainCategory: {
       handler(data) {
-        if (data.length > 0) {
-          this.chainData = data
+        if (data) {
+          this.chainData = data.chain
+          this.categoryData = data.category
         } else {
           this.chainData = []
+          this.categoryData = null
         }
       },
     },

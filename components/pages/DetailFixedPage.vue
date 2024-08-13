@@ -82,8 +82,8 @@ export default {
     },
     chainCategory: {
       handler(data) {
-        if (data.length > 0) {
-          this.chainData = data
+        if (data) {
+          this.chainData = data.chain
         } else {
           this.chainData = []
         }
