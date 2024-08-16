@@ -15,7 +15,7 @@
           >
             <div class="content-item-slider">
               <NuxtLink
-                :to="`tin-tuc/${slideNew.categories.url}/${slideNew.slug}`"
+                :to="`bai-viet/${slideNew.categories.url}/${slideNew.slug}`"
               >
                 <b-img :src="slideNew.photo" :alt="`Slide ${index + 1}`">
                 </b-img>
@@ -24,7 +24,7 @@
               <div class="wrapper-text-slider">
                 <h4 class="text-slide">
                   <NuxtLink
-                    :to="`tin-tuc/${slideNew.categories.url}/${slideNew.slug}`"
+                    :to="`bai-viet/${slideNew.categories.url}/${slideNew.slug}`"
                   >
                     {{ slideNew.translations[$i18n.locale].title }}
                   </NuxtLink>
@@ -47,7 +47,7 @@
     <div class="news-bottom-slide">
       <ul>
         <li v-for="(listNew, index) in listNews" :key="index">
-          <NuxtLink :to="`tin-tuc/${listNew.categories.url}/${listNew.slug}`">
+          <NuxtLink :to="`bai-viet/${listNew.categories.url}/${listNew.slug}`">
             {{ listNew.translations[$i18n.locale].title }}
           </NuxtLink>
         </li>

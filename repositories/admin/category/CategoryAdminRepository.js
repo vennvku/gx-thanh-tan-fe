@@ -8,6 +8,12 @@ export default ($axios) => ({
   update(id, payload) {
     return $axios.put(`${env.apiUrl}/${resource}/${id}`, payload)
   },
+  updateCategoryManagement(id, payload) {
+    return $axios.post(
+      `${env.apiUrl}/admin/update-category-management/${id}`,
+      payload
+    )
+  },
   moveUpCategory(payload) {
     return $axios.post(`${env.apiUrl}/${resource}/move-up-category`, payload)
   },

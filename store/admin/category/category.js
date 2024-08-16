@@ -39,7 +39,7 @@ export const actions = {
     }
   },
 
-  async getCategorie({ commit }, params = null) {
+  async getCategories({ commit }, params = null) {
     commit('SET_IS_CALL_API', true)
 
     try {
@@ -64,10 +64,11 @@ export const actions = {
     }, 10)
 
     try {
-      const { status, data } = await this.$repositories.categoryAdmin.update(
-        id,
-        payload
-      )
+      const { status, data } =
+        await this.$repositories.categoryAdmin.updateCategoryManagement(
+          id,
+          payload
+        )
 
       if (+status === successCode.OK && data) {
         commit('UPDATE_CATEGORY_WITH_DATA', data)
@@ -183,7 +184,7 @@ export const actions = {
       const { status } = await this.$repositories.categoryAdmin.delete(id)
 
       if (+status === successCode.OK) {
-        dispatch('admin/category/category/getCategorie', {}, { root: true })
+        dispatch('admin/category/category/getCategories', {}, { root: true })
         Vue.prototype.$bus.$emit('delete-category-done')
         successToast('deletedCategory', this.app.i18n)
       }
