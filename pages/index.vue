@@ -14,7 +14,7 @@
                   <li v-for="(mainNew, index) in mainNews" :key="index">
                     <div class="wrapper-title">
                       <NuxtLink
-                        :to="`${mainNew.categories.url}/${mainNew.slug}`"
+                        :to="`tin-tuc/${mainNew.categories.url}/${mainNew.slug}`"
                         class="title"
                       >
                         {{ mainNew.translations[$i18n.locale].title }}
@@ -27,7 +27,7 @@
                     </div>
                     <div v-if="(index == 0) | (index == 1)" class="thumb">
                       <NuxtLink
-                        :to="`${mainNew.categories.url}/${mainNew.slug}`"
+                        :to="`tin-tuc/${mainNew.categories.url}/${mainNew.slug}`"
                       >
                         <b-img :src="mainNew.photo"></b-img>
                       </NuxtLink>

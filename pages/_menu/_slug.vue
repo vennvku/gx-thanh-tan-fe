@@ -1,12 +1,9 @@
 <template>
-  <div>
-    <div v-if="type">
-      <div v-if="type.type === 1">
-        <detail-fixed-page />
-      </div>
-      <div v-else><dynamic-layout /></div>
+  <div v-if="type">
+    <div v-if="type.type === 1">
+      <detail-fixed-page />
     </div>
-    <div v-else>Trang tin tuc</div>
+    <div v-else><dynamic-layout /></div>
   </div>
 </template>
 

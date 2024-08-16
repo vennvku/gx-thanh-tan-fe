@@ -14,14 +14,18 @@
             :class="{ active: index === activeIndex }"
           >
             <div class="content-item-slider">
-              <NuxtLink :to="`${slideNew.categories.url}/${slideNew.slug}`">
+              <NuxtLink
+                :to="`tin-tuc/${slideNew.categories.url}/${slideNew.slug}`"
+              >
                 <b-img :src="slideNew.photo" :alt="`Slide ${index + 1}`">
                 </b-img>
               </NuxtLink>
 
               <div class="wrapper-text-slider">
                 <h4 class="text-slide">
-                  <NuxtLink :to="`${slideNew.categories.url}/${slideNew.slug}`">
+                  <NuxtLink
+                    :to="`tin-tuc/${slideNew.categories.url}/${slideNew.slug}`"
+                  >
                     {{ slideNew.translations[$i18n.locale].title }}
                   </NuxtLink>
                 </h4>
@@ -43,7 +47,7 @@
     <div class="news-bottom-slide">
       <ul>
         <li v-for="(listNew, index) in listNews" :key="index">
-          <NuxtLink :to="`${listNew.categories.url}/${listNew.slug}`">
+          <NuxtLink :to="`tin-tuc/${listNew.categories.url}/${listNew.slug}`">
             {{ listNew.translations[$i18n.locale].title }}
           </NuxtLink>
         </li>
@@ -69,44 +73,6 @@ export default {
     return {
       activeIndex: 0,
       interval: null,
-      // slideNews: [
-      //   {
-      //     src: require('@/assets/img/1.jpg'),
-      //     title: 'Trò chơi ô chữ – Chúa nhật X Thường niên 2024 – Năm B',
-      //   },
-      //   {
-      //     src: require('@/assets/img/2.jpg'),
-      //     title:
-      //       'Thiếu Nhi Thánh Thể Hạt thành phố Huế mừng lễ Mình Máu Thánh Chúa Kitô năm 2024',
-      //   },
-      //   {
-      //     src: require('@/assets/img/3.jpg'),
-      //     title:
-      //       'TNTT Hiệp Đoàn Hải Vân Mừng Lễ Mình và Máu Thánh Chúa Kitô – Bổn mạng phong trào Thiếu Nhi Thánh Thể năm 2024',
-      //   },
-      //   {
-      //     src: require('@/assets/img/4.jpg'),
-      //     title: 'Thánh Lễ Ban Bí tích Thêm Sức tại Giáo sở Nước Ngọt năm 2024',
-      //   },
-      //   {
-      //     src: require('@/assets/img/5.jpg'),
-      //     title:
-      //       'Caritas Huế – Nối kết tình thân gia đình trẻ em OVC trong ngày sinh hoạt 02.6.2024',
-      //   },
-      // ],
-      // listNews: [
-      //   {
-      //     title: 'Trò chơi ô chữ – Chúa nhật X Thường niên 2024 – Năm B',
-      //   },
-      //   {
-      //     title:
-      //       'Thiếu Nhi Thánh Thể Hạt thành phố Huế mừng lễ Mình Máu Thánh Chúa Kitô năm 2024',
-      //   },
-      //   {
-      //     title:
-      //       'TNTT Hiệp Đoàn Hải Vân Mừng Lễ Mình và Máu Thánh Chúa Kitô – Bổn mạng phong trào Thiếu Nhi Thánh Thể năm 2024',
-      //   },
-      // ],
     }
   },
   mounted() {
